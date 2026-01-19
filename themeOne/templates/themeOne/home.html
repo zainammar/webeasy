@@ -1,26 +1,42 @@
-{% for page in pages %}
-    <h2>{{ page.title }}</h2>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    {% load page_extras %}
 
-    <p>{{ page.content1 }}</p>
-    {% if page.image1 %}
-    <img src="{{ page.image1.url }}" width="200">
-{% endif %}
-    <p>{{ page.content2 }}</p>
-    {% if page.image2 %}
-    <img src="{{ page.image2.url }}" width="200">
-{% endif %}
-
-
-    <p>{{ page.content3 }}</p>
-      
-    {% if page.image3 %}
-        <img src="{{ page.image3.url }}" width="200">
+    <title>{{ page.title }}</title>
+    {% if page.css_file %}
+        <link rel="stylesheet" href="{% static page.css_file %}">
     {% endif %}
-    {% if page.image4 %}
-    <img src="{{ page.image4.url }}" width="200">
-      {% endif %}
+</head>
+<body>
 
-    <p>{{ page.content4 }}</p>
-  
-    <hr>
+<!-- Navigation Menu -->
+<nav>
+    <ul>
+        {% for nav_page in all_pages %}
+            <li>
+                <a href="{% url 'page_detail' nav_page.slug %}">
+                    {{ nav_page.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
+
+<!-- Page Content -->
+<h1>{{ page.title }}</h1>
+<p>{{ page.content1 }}</p>
+<p>{{ page.content2 }}</p>
+<p>{{ page.content3 }}</p>
+<p>{{ page.content4 }}</p>
+
+<!-- Page Images -->
+{% for img in page|images %}
+    {% if img %}
+        <img src="{{ img.url }}" width="200">
+    {% endif %}
 {% endfor %}
+</body>
+</html>

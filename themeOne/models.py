@@ -8,13 +8,16 @@ class Page(models.Model):
     content2 = models.TextField(blank=True)
     content3 = models.TextField(blank=True)
     content4 = models.TextField(blank=True)
+    
 
     image1 = models.ImageField(upload_to='pages/', blank=True, null=True)
     image2 = models.ImageField(upload_to='pages/', blank=True, null=True)
     image3 = models.ImageField(upload_to='pages/', blank=True, null=True)
     image4 = models.ImageField(upload_to='pages/', blank=True, null=True)
 
-    created_at = models.DateTimeField(auto_now_add=True)
+    css_file = models.CharField(max_length=255, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)  # ✅ ADD THIS
 
     def __str__(self):
         return self.title
