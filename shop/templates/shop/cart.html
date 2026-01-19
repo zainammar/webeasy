@@ -1,0 +1,27 @@
+<h1>Shopping Cart</h1>
+{% if cart_items %}
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Actions</th>
+    </tr>
+    {% for item in cart_items %}
+    <tr>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>${{ item.item_total }}</td>
+        <td>
+            <a href="{% url 'cart_add' item.product.id %}">+</a>
+            <a href="{% url 'cart_decrease' item.product.id %}">-</a>
+            <a href="{% url 'cart_remove' item.product.id %}">Remove</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<p><strong>Total: ${{ total }}</strong></p>
+{% else %}
+<p>Your cart is empty.</p>
+{% endif %}
+<a href="{% url 'product_list' %}">Continue Shopping</a>

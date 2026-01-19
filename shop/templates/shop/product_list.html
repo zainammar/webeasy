@@ -1,3 +1,11 @@
+
+<nav>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'page_detail' 'about-us' %}">About Us</a></li>
+        <li><a href="/shop/">Shop</a></li> <!-- Here is your shop link -->
+    </ul>
+</nav>
 <h1>Shop</h1>
 <ul>
     {% for product in products %}
