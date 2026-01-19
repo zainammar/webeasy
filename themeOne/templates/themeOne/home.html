@@ -11,8 +11,15 @@
     {% endif %}
 </head>
 <body>
-
-<!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'page_detail' 'about-us' %}">About Us</a></li>
+            <li><a href="/shop/">Shop</a></li> <!-- Here is your shop link -->
+        </ul>
+    </nav>
+    
+<!-- Navigation Menu
 <nav>
     <ul>
         {% for nav_page in all_pages %}
@@ -23,7 +30,7 @@
             </li>
         {% endfor %}
     </ul>
-</nav>
+</nav> -->
 
 <!-- Page Content -->
 <h1>{{ page.title }}</h1>
