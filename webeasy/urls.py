@@ -5,9 +5,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('shop/', include('shop.urls')),      # Shop app
-    path('', include('themeOne.urls')),       # CMS pages
+    path('accounts/', include('accounts.urls')),
+    path('shop/', include('shop.urls')),
+    path('', include('themeOne.urls')),
 ]
+
 
 # Serve media files during development
 if settings.DEBUG:

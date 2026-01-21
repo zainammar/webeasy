@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
-
+from django.contrib.auth.decorators import login_required
 
 
 # Display all products
@@ -103,3 +103,20 @@ def cart_remove(request, product_id):
 # def product_detail(request, slug):
 #     product = get_object_or_404(Product, slug=slug)
 #     return render(request, 'shop/product_detail.html', {'product': product})
+
+
+
+@login_required(login_url='login')
+def add_to_cart(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    cart = request.session.get('cart', {})
+
+    quantity = int(request.POST.get('quantity', 1))
+
+    if str(product.id) in cart:
+        cart[str(product.id)] += quantity
+    else:
+        cart[str(product.id)] = quantity
+
+    request.session['cart'] = cart
+    return redirect('cart_detail')
