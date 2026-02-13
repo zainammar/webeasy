@@ -1,6 +1,13 @@
+{% extends "shop/base.html" %}
+
+{% block title %}Shopping Cart{% endblock %}
+
+{% block content %}
 <h1>Shopping Cart</h1>
+<a href="{% url 'product_list' %}">Back to Products</a>
+
 {% if cart_items %}
-<table>
+<table border="1" cellpadding="10">
     <tr>
         <th>Product</th>
         <th>Quantity</th>
@@ -13,15 +20,20 @@
         <td>{{ item.quantity }}</td>
         <td>${{ item.item_total }}</td>
         <td>
-            <a href="{% url 'cart_add' item.product.id %}">+</a>
-            <a href="{% url 'cart_decrease' item.product.id %}">-</a>
-            <a href="{% url 'cart_remove' item.product.id %}">Remove</a>
+            <form method="POST" action="{% url 'add_to_cart' item.product.slug %}" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit">+</button>
+            </form>
         </td>
     </tr>
     {% endfor %}
 </table>
+
 <p><strong>Total: ${{ total }}</strong></p>
+<a href="{% url 'checkout' %}"><button>Proceed to Checkout</button></a>
 {% else %}
 <p>Your cart is empty.</p>
+<a href="{% url 'product_list' %}">Shop Now</a>
 {% endif %}
-<a href="{% url 'product_list' %}">Continue Shopping</a>
+{% endblock %}

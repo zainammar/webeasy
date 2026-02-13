@@ -1,0 +1,40 @@
+{% extends "shop/base.html" %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<h1>Checkout</h1>
+
+{% if cart_items %}
+<form method="POST" action="{% url 'checkout' %}">
+    {% csrf_token %}
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>${{ item.item_total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><strong>Total: ${{ total }}</strong></p>
+
+    <h3>Shipping Info</h3>
+    <label>Phone:</label><br>
+    <input type="text" name="phone" required><br>
+    <label>Address:</label><br>
+    <textarea name="address" required></textarea><br><br>
+
+    <button type="submit">Place Order</button>
+</form>
+{% else %}
+<p>Your cart is empty.</p>
+<a href="{% url 'product_list' %}">Shop Now</a>
+{% endif %}
+{% endblock %}

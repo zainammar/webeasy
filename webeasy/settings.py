@@ -57,8 +57,8 @@ ROOT_URLCONF = 'webeasy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,   # MUST be True
+        'DIRS': [],          # empty is fine for app-level templates
+        'APP_DIRS': True,    # MUST be True
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
