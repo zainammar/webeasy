@@ -20,6 +20,16 @@
         nav a:hover {
             color: #007BFF;
         }
+        .category-nav {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+        .category-nav a {
+            margin-right: 10px;
+            color: #555;
+            font-weight: normal;
+        }
         table {
             border-collapse: collapse;
             width: 80%;
@@ -47,6 +57,17 @@
         {% else %}
             <a href="{% url 'login' %}">Login</a>
             <a href="{% url 'signup' %}">Signup</a>
+        {% endif %}
+
+        {# Add Categories here #}
+        {% if categories %}
+            <div class="category-nav">
+                <strong>Categories:</strong>
+                <a href="{% url 'product_list' %}">All</a> {# Link to show all products #}
+                {% for cat in categories %}
+                    <a href="{% url 'product_list_by_category' cat.slug %}">{{ cat.name }}</a>
+                {% endfor %}
+            </div>
         {% endif %}
     </nav>
 </header>

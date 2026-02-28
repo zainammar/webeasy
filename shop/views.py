@@ -1,25 +1,38 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Product, Order, OrderItem
-
+from .models import Product, Order, OrderItem, Category # <-- Make sure Category is imported!
 
 # Product list
-def product_list(request):
+def product_list(request, category_slug=None): # <-- Added category_slug for filtering
+    category = None
+    categories = Category.objects.all() # <-- Fetch ALL categories here
     products = Product.objects.filter(available=True)
-    return render(request, 'shop/product_list.html', {'products': products})
 
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+
+    return render(request, 'shop/product_list.html', {
+        'category': category,
+        'categories': categories, # <-- Pass categories to the template
+        'products': products
+    })
 
 # Product detail
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
-    return render(request, 'shop/product_detail.html', {'product': product})
-
+    # We'll also pass categories here if you want them on product detail pages
+    categories = Category.objects.all()
+    return render(request, 'shop/product_detail.html', {
+        'product': product,
+        'categories': categories # <-- Pass categories to product_detail as well
+    })
 
 # Add to cart (session)
 @login_required(login_url='login')
 def add_to_cart(request, slug):
     product = get_object_or_404(Product, slug=slug)
-    cart = request.session.get('cart', {})
+    cart = request.session.get('cart', {}) # <-- Ensure this is `{}`
 
     quantity = int(request.POST.get('quantity', 1))
 
@@ -28,11 +41,10 @@ def add_to_cart(request, slug):
 
     return redirect('cart_detail')
 
-
 # View cart
 @login_required(login_url='login')
 def cart_detail(request):
-    cart = request.session.get('cart', {})
+    cart = request.session.get('cart', {}) # <-- Ensure this is `{}`
     cart_items = []
     total = 0
 
@@ -46,17 +58,18 @@ def cart_detail(request):
             'quantity': quantity,
             'item_total': item_total
         })
-
+    
+    categories = Category.objects.all() # <-- Pass categories to cart_detail
     return render(request, 'shop/cart.html', {
         'cart_items': cart_items,
-        'total': total
+        'total': total,
+        'categories': categories # <-- Pass categories
     })
 
-
-# Checkout → Save to Database (FINAL CART FOR ADMIN)
+# Checkout (first instance of checkout)
 @login_required(login_url='login')
 def checkout(request):
-    cart = request.session.get('cart', {})
+    cart = request.session.get('cart', {}) # <-- Ensure this is `{}`
     if not cart:
         return redirect('cart_detail')
 
@@ -86,11 +99,10 @@ def checkout(request):
 
     return redirect('product_list')
 
-
-
+# Checkout (second instance of checkout, assuming this is the one you intend to use)
 @login_required(login_url='login')
 def checkout(request):
-    cart = request.session.get('cart', {})
+    cart = request.session.get('cart', {}) # <-- Ensure this is `{}`
     if not cart:
         return redirect('cart_detail')
 
@@ -127,8 +139,10 @@ def checkout(request):
         request.session['cart'] = {}
 
         return redirect('product_list')
-
+    
+    categories = Category.objects.all() # <-- Pass categories to checkout
     return render(request, 'shop/checkout.html', {
         'cart_items': cart_items,
-        'total': total
+        'total': total,
+        'categories': categories # <-- Pass categories
     })
