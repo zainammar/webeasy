@@ -7,6 +7,10 @@ body {
     list-style: none;
     display: flex;
     gap: 20px;
+    background-color:black;
+    color:white;
+    padding:10px;
+    margin:10px;
 }
 
 nav a {
@@ -15,5 +19,5 @@ nav a {
 }
 
 nav a:hover {
-    color: red;
+    color: white;
 }
