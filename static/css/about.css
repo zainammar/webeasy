@@ -1,3 +1,44 @@
 body { 
-    background: rgb(224, 220, 11); 
-  }
+  background-color:#D4D6CA ;
+}
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  background-color: #4A6670;   
+  color:white;
+  padding:10px;
+  margin:10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #FBFEF9;
+}
+nav a:hover {
+  color: #C97D60;
+}
+
+
+
+.bg-x1{
+background-color:#34113F ;
+}
+.bg-x2{
+  background-color: #4A6670;   
+}
+.bg-x3{
+  background-color: #C97D60;
+}
+.bg-x4{
+  background-color:#D4D6CA ;
+}
+.bg-x5{
+  background-color: #FBFEF9;
+}
+
+
+
+
