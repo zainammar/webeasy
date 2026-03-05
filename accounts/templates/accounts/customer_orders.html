@@ -1,0 +1,56 @@
+<h2>Customer Orders</h2>
+
+<table border="1" cellpadding="10">
+<tr>
+    <th>User</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Orders</th>
+</tr>
+
+{% for d in data %}
+<tr>
+
+<td>{{ d.user.username }}</td>
+
+<td>
+{% if d.profile %}
+{{ d.profile.phone }}
+{% endif %}
+</td>
+
+<td>
+{% if d.profile %}
+{{ d.profile.address }}
+{% endif %}
+</td>
+
+<td>
+
+{% for order in d.orders %}
+
+<b>Order #{{ order.id }}</b><br>
+Total: {{ order.total_price }}
+
+<ul>
+{% for item in order.orderitem_set.all %}
+<li>
+{{ item.product.name }}
+Qty: {{ item.quantity }}
+Price: {{ item.price }}
+</li>
+{% endfor %}
+</ul>
+
+<hr>
+
+{% empty %}
+No Orders
+{% endfor %}
+
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
