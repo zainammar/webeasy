@@ -40,5 +40,42 @@ nav a:hover {
 }
 
 
+button {
+    background-color: #C97D60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.grid-container {
+    display: grid;
+    gap: 20px;
+}
+
+.grid-container.col-1 { /* Changed from .grid-container.1col */
+    grid-template-columns: 1fr;
+}
+
+.grid-container.col-2 { /* Changed from .grid-container.2col */
+    grid-template-columns: repeat(1fr, 1fr);
+}
+
+.grid-container.col-3 { /* Changed from .grid-container.3col */
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-container.col-4 { /* Changed from .grid-container.4col */
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+}
 
 
+img {
+    max-width: 100%;
+    height: auto;
+}

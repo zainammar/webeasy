@@ -1,6 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+    <div class="grid-container {{ page.grid_layout }}">
+        {% for section in page.sections.all %}
+            <div class="grid-item">
+                {% if section.image %}
+                    <img src="{{ section.image.url }}">
+                {% endif %}
+                <p>{{ section.content }}</p>
+            </div>
+        {% endfor %}
+    </div>
 <head>
 
     {% load page_extras %}
@@ -19,32 +29,63 @@
             
         </ul>
     </nav>
+    <div class="grid-container {{ page.grid_layout }}">
+     
+        {% if page.content1 %}
+            <div class="grid-item">
+                <h2> {{ page.content1 }} </h2>
+                {% if page.image1 %}
+                    <img src="{{ page.image1.url }}">
+                {% endif %}
+                {% if page.image2 %}
+                <img src="{{ page.image2.url }}">
+            {% endif %}
+           
+            </div>
+        {% endif %}
     
-<!-- Navigation Menu
-<nav>
-    <ul>
-        {% for nav_page in all_pages %}
-            <li>
-                <a href="{% url 'page_detail' nav_page.slug %}">
-                    {{ nav_page.title }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-</nav> -->
+        {% if page.content2 %}
+            <div class="grid-item">
+           
+                <p>{{ page.content2 }}</p>
+            </div>
+        {% endif %}
+    
+        {% if page.content3 %}
+            <div class="grid-item">
+                <h2> {{ page.content3 }} </h2>
+                {% if page.image3 %}
+                    <img src="{{ page.image3.url }}">
+                    
+                {% endif %}
+                {% if page.image4 %}
+                <img src="{{ page.image4.url }}">
+            {% endif %}
+            </div>
+        {% endif %}
+    
+        {% if page.content4 %}
+            <div class="grid-item">
+             
+                <p>{{ page.content4 }}</p>
+            </div>
+        {% endif %}
+    
+    </div>
 
-<!-- Page Content -->
-<h1>{{ page.title }}</h1>
-<p>{{ page.content1 }}</p>
-<p>{{ page.content2 }}</p>
-<p>{{ page.content3 }}</p>
-<p>{{ page.content4 }}</p>
 
-<!-- Page Images -->
-{% for img in page|images %}
-    {% if img %}
-        <img src="{{ img.url }}" width="200">
-    {% endif %}
-{% endfor %}
-</body>
-</html>
+
+    <div class="grid-container {{ page.grid_layout }}">
+    <div class="grid-item">
+        <p>{{ page.content5 }}</p>
+    </div>
+    <div class="grid-item">
+        <p>{{ page.content6 }}</p>
+    </div>
+    <div class="grid-item">
+        <p>{{ page.content7 }}</p>
+    </div>
+    <div class="grid-item">
+        <p>{{ page.content8 }}</p>
+    </div>
+</div>
