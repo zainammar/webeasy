@@ -1,5 +1,8 @@
 body { 
     background-color:#D4D6CA ;
+    padding: 10px;
+    margin: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
 
@@ -20,7 +23,6 @@ nav a {
 nav a:hover {
     color: #C97D60;
 }
-
 
 
 .bg-x1{
@@ -47,7 +49,20 @@ button {
     padding: 10px 20px;
     cursor: pointer;
 }
+.grid-container1 {
+    grid-template-columns: repeat(3fr, 1fr , 1fr );
+}
 
+
+img{
+
+    width: 80%;
+    border: #34113F;
+    box-shadow: #C97D60;
+    border-style: double;
+    border-radius: 20px;
+
+}
 .grid-container {
     display: grid;
     gap: 20px;

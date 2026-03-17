@@ -37,37 +37,36 @@
                 {% if page.image1 %}
                     <img src="{{ page.image1.url }}">
                 {% endif %}
-                {% if page.image2 %}
-                <img src="{{ page.image2.url }}">
-            {% endif %}
-           
+         
             </div>
         {% endif %}
     
         {% if page.content2 %}
             <div class="grid-item">
-           
+                <h2> {{ page.content3 }} </h2>
                 <p>{{ page.content2 }}</p>
+                <p>{{ page.content4 }}</p>
             </div>
         {% endif %}
     
         {% if page.content3 %}
             <div class="grid-item">
-                <h2> {{ page.content3 }} </h2>
+             
                 {% if page.image3 %}
                     <img src="{{ page.image3.url }}">
                     
                 {% endif %}
-                {% if page.image4 %}
-                <img src="{{ page.image4.url }}">
+                {% if page.image2 %}
+                <img src="{{ page.image2.url }}">
             {% endif %}
+            
             </div>
         {% endif %}
     
         {% if page.content4 %}
             <div class="grid-item">
              
-                <p>{{ page.content4 }}</p>
+               
             </div>
         {% endif %}
     
@@ -77,15 +76,25 @@
 
     <div class="grid-container {{ page.grid_layout }}">
     <div class="grid-item">
-        <p>{{ page.content5 }}</p>
-    </div>
-    <div class="grid-item">
+        <h2>{{ page.content5 }}</h2>
+        <br>
         <p>{{ page.content6 }}</p>
+        <br>
+        <p>{{ page.content7 }}</p>
+  
     </div>
     <div class="grid-item">
-        <p>{{ page.content7 }}</p>
+        {% if page.image4 %}
+        <img src="{{ page.image4.url }}">
+    {% endif %}
     </div>
     <div class="grid-item">
         <p>{{ page.content8 }}</p>
+    </div>
+    <div class="grid-item">
+      
+      
+   
+   
     </div>
 </div>

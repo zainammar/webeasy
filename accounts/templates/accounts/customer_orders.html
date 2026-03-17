@@ -1,56 +1,85 @@
 <h2>Customer Orders</h2>
-
-<table border="1" cellpadding="10">
-<tr>
-    <th>User</th>
-    <th>Phone</th>
-    <th>Address</th>
-    <th>Orders</th>
-</tr>
-
-{% for d in data %}
-<tr>
-
-<td>{{ d.user.username }}</td>
-
-<td>
-{% if d.profile %}
-{{ d.profile.phone }}
-{% endif %}
-</td>
-
-<td>
-{% if d.profile %}
-{{ d.profile.address }}
-{% endif %}
-</td>
-
-<td>
-
-{% for order in d.orders %}
-
-<b>Order #{{ order.id }}</b><br>
-Total: {{ order.total_price }}
-
-<ul>
-{% for item in order.orderitem_set.all %}
-<li>
-{{ item.product.name }}
-Qty: {{ item.quantity }}
-Price: {{ item.price }}
-</li>
-{% endfor %}
-</ul>
-
 <hr>
 
-{% empty %}
-No Orders
+<style>
+    body {background-color:  #4A6670;
+    color:#FBFEF9;
+    padding: 10px;
+    margin: 10px;
+
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #C97D60;;
+    padding: 15px;
+    border-radius: 8px;
+    background: #D4D6CA;
+    color:#000000;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.order {
+    border-top: 1px solid #FBFEF9;
+
+    margin-top: 10px;
+    padding-top: 10px;
+}
+</style>
+
+<div class="container">
+
+{% for d in data %}
+<div class="card">
+
+    <h3>{{ d.user.username }}</h3>
+
+    <p>
+        <strong>Phone:</strong>
+        {% if d.profile %}
+            {{ d.profile.phone }}
+        {% endif %}
+    </p>
+
+    <p>
+        <strong>Address:</strong>
+        {% if d.profile %}
+            {{ d.profile.address }}
+        {% endif %}
+    </p>
+
+    <hr>
+
+    {% for order in d.orders %}
+    <div class="order">
+
+        <b>Order #{{ order.id }}</b><br>
+        Date: {{ order.created_at }} <br>
+        Total: {{ order.total_price }}
+
+        <ul>
+        {% for item in order.orderitem_set.all %}
+            <li>
+                {{ item.product.name }}
+                (Qty: {{ item.quantity }})
+                - {{ item.price }}
+            </li>
+        {% endfor %}
+        </ul>
+
+    </div>
+    {% empty %}
+        <p>No Orders</p>
+    {% endfor %}
+
+</div>
 {% endfor %}
 
-</td>
-
-</tr>
-{% endfor %}
-
-</table>
+</div>
