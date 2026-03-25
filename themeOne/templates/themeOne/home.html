@@ -1,6 +1,8 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
+
+{% extends "shop/base.html" %}
+{% block content %}
+
+<!-- {% load static %} -->
     <div class="grid-container {{ page.grid_layout }}">
         {% for section in page.sections.all %}
             <div class="grid-item">
@@ -21,14 +23,7 @@
     {% endif %}
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'page_detail' 'about-us' %}">About Us</a></li>
-            <li><a href="/shop/">Shop</a></li> <!-- Here is your shop link -->
-            
-        </ul>
-    </nav>
+   
     <div class="grid-container {{ page.grid_layout }}">
      
         {% if page.content1 %}
@@ -98,3 +93,6 @@
    
     </div>
 </div>
+
+
+{% endblock %}

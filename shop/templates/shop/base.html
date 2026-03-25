@@ -6,8 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body {margin:0;font-family:Arial}
+body { 
+    background-color:#D4D6CA ;
+    padding: 10px;
+    margin: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
 
+  button {
+    background-color: #C97D60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.fotter-text{
+  background-color: #34113F;
+  color: #C97D60;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: large;
+  font-weight: 300;
+}
 .topnav {
   overflow: hidden;
   background-color: #4A6670;
@@ -119,6 +138,7 @@ body {margin:0;font-family:Arial}
 <div class="topnav" id="myTopnav">
     <a href="{% url 'home' %}">Home</a>
     <a href="{% url 'page_detail' 'about-us' %}">About Us</a>
+    <a href="{% url 'page_detail' 'contact-us' %}">Contact-us</a>
     <!-- <a href="{% url 'product_list' %}">Products</a> -->
     <a href="/shop/">Shop</a>
     <a href="{% url 'cart_detail' %}">Cart</a>
@@ -181,6 +201,9 @@ body {margin:0;font-family:Arial}
 
 <footer>
     <p>&copy; {{ year }} My Shop</p>
+    <h2 class="fotter-text">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore aspernatur totam quo tempora culpa architecto accusamus nihil aperiam tenetur similique quas ad eaque, mollitia distinctio error quisquam assumenda modi fugit.
+    </h2>
 </footer>
 
 </body>

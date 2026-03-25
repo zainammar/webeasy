@@ -4,8 +4,12 @@
 
 {% block content %}
 <h1>Shopping Cart</h1>
-<a href="{% url 'product_list' %}">Back to Products</a>
+<br>
+<button>
+    <a href="{% url 'product_list' %}">Back to Products</a>
 
+</button>
+<br><br>
 {% if cart_items %}
 <table border="1" cellpadding="10">
     <tr>
