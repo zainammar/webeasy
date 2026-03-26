@@ -13,9 +13,16 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # Use Path for modern path handling
 BASE_DIR = Path(__file__).resolve().parent.parent
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -122,7 +129,7 @@ STATICFILES_DIRS = [
 ]
 # This defines the absolute path to the directory where collectstatic will gather all static files
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
+STATIC_URL = '/static/'  # add the leading slash
 # Media files (user-uploaded content)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media' # This defines where uploaded files will be stored
