@@ -27,6 +27,10 @@ class Page(models.Model):
     content2 = models.TextField(blank=True)
     content3 = models.TextField(blank=True)
     content4 = models.TextField(blank=True)
+    content5 = models.TextField(blank=True)
+    content6 = models.TextField(blank=True)
+    content7 = models.TextField(blank=True)
+    content8 = models.TextField(blank=True)
 
     image1 = models.ImageField(upload_to='pages/', blank=True, null=True)
     image2 = models.ImageField(upload_to='pages/', blank=True, null=True)
@@ -34,10 +38,14 @@ class Page(models.Model):
     image4 = models.ImageField(upload_to='pages/', blank=True, null=True)
 
 
-    content5 = models.TextField(blank=True)
-    content6 = models.TextField(blank=True)
-    content7 = models.TextField(blank=True)
-    content8 = models.TextField(blank=True)
+    content9 = models.TextField(blank=True)
+    content10 = models.TextField(blank=True)
+    content11 = models.TextField(blank=True)
+    content12 = models.TextField(blank=True)
+    content13 = models.TextField(blank=True)
+    content14 = models.TextField(blank=True)
+    content15 = models.TextField(blank=True)
+    content16 = models.TextField(blank=True)
 
 
     GRID_CHOICES2 = (

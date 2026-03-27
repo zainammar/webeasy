@@ -1,19 +1,21 @@
 body { 
     background-color:#D4D6CA ;
-    padding: 10px;
-    margin: 10px;
+    padding: 0px;
+    margin: 0px;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
-
+*{
+    padding: 0px;
+    margin: 0px;
+}
   nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
     background-color: #4A6670;   
     color:white;
-    padding:10px;
-    margin:10px;
+   
 }
 
 nav a {
@@ -52,17 +54,137 @@ button {
 .grid-container1 {
     grid-template-columns: repeat(3fr, 1fr , 1fr );
 }
+/* GRID */
+
+  /* Grid Content */
+  .content-grid {
+    display: grid;
+    gap: 10px;
+  }
+  
+ 
 
 
-img{
+  .grid-container {
+    display: grid;
+    grid-template-columns: 200px 300px; /* First column 200px, second column 300px */
+
+    
+  }
+  
+  .grid-item-1 {
+    padding:10px;
+    margin: 10px;
+    text-align: left;  
+  }
+  
+  .grid-item-2 {
+    padding:10px;
+    text-align: left;  
+  }
+  
+  /* Mobile First - 1 column for all rows */
+  .row-1, .row-2, .row-3, .row-4 {
+    display: grid;
+   
+    
+   
+  }
+  
+  /* Desktop View */
+  @media screen and (min-width: 768px) {
+  
+    /* 1 column, 1 row (remains the same) */
+    .row-1 {
+        grid-template-columns: 1fr;
+       
+    }
+  
+    /* 2 columns, 1 row */
+    .row-2 {
+        grid-template-columns: 1fr 1fr;
+        
+        
+    }
+  
+    /* 3 columns, 1 row */
+    .row-3 {
+        grid-template-columns: 1fr 1fr 1fr;
+       
+    }
+  
+    /* 4 columns, 1 row */
+    .row-4 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+       
+    }
+  
+    /* 5 columns, 1 row */
+    .row-5 {
+      grid-template-columns: 1fr 2fr 1fr 1fr;
+     
+  }
+
+      /*6 columns, 1 row */
+      .row-6 {
+        grid-template-columns: 1fr 3fr 1fr;
+       
+    }
+
+        /*6 columns, 1 row */
+        .row-7 {
+          grid-template-columns: 1fr 2fr 2fr 1fr;
+         
+      }
+
+       /*6 columns, 1 row */
+       .row-8 {
+        grid-template-columns: 2fr 4fr;
+       
+    }
+
+         /*7 columns, 1 row */
+         .row-8 {
+        grid-template-columns: 4fr 2fr;
+       
+    }
+
+    .row-9{
+        grid-template-columns: 1fr 1fr 1fr ;
+       
+    }
+
+    .row-10 {
+        grid-template-columns:0.5fr 2fr 2fr 0.5fr;
+       
+    }
+  }
+  
+  
+  .grid-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+    .bg-1{
+      background-color:  #34113F;
+   
+ 
+  }
+
+/* img{
 
     width: 80%;
     border: #34113F;
     box-shadow: #C97D60;
     border-style: double;
     border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
 
-}
+} */
 .grid-container {
     display: grid;
     gap: 20px;
@@ -84,13 +206,23 @@ img{
     grid-template-columns: repeat(4, 1fr);
 }
 
-.grid-item img {
-    width: 100%;
-    height: auto;
-}
 
 
 img {
     max-width: 100%;
     height: auto;
 }
+
+
+.text-1{
+    margin: 10px;
+    padding: 10px;
+}
+
+li{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+   line-height: 1.5;
+
+}
+

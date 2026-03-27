@@ -3,6 +3,7 @@
 {% block content %}
 {% load static %}
 <!-- {% load static %} -->
+<br>
     <div class="grid-container {{ page.grid_layout }}">
         {% for section in page.sections.all %}
             <div class="grid-item">
@@ -23,76 +24,93 @@
     {% endif %}
 </head>
 <body>
+    <div class="row-8 content-grid  {{ page.grid_layout }}">
    
-    <div class="grid-container {{ page.grid_layout }}">
      
-        {% if page.content1 %}
-            <div class="grid-item">
-                <h2> {{ page.content1 }} </h2>
+            <div class="grid-item text-1">
+                <h2>  {% if page.content1 %}
+                {{ page.content1 }} </h2>
+               <br>
+            <p class="para-2"> {% if page.content2 %}
+            {{ page.content2 }}  </p>
+            <p class="para-2">  {% if page.content3 %}
+           {{ page.content3 }} </p>
+            </div>
+        {% endif %}
+    
+          
+                <div class="grid-item">
                 {% if page.image1 %}
-                    <img src="{{ page.image1.url }}">
-                {% endif %}
-         
-            </div>
-        {% endif %}
+                <img class="img" src="{{ page.image1.url }}">
+            {% endif %}
+        </div>   
     
-        {% if page.content2 %}
-            <div class="grid-item">
-                <h2> {{ page.content3 }} </h2>
-                <p>{{ page.content2 }}</p>
-                <p>{{ page.content4 }}</p>
-            </div>
-        {% endif %}
+    </div>
+      
+
+
+
+<div class="row-10 content-grid  {{ page.grid_layout }}">
+    <div class="grid-item"> </div>
+    <div class="grid-item">
+        <h3 class="heading-3">  {{ page.content4 }}  </h3>
+<ul>
+<li>  {{ page.content5 }} </li>
+<li> {{ page.content6 }} </li>
+<li> {{ page.content7 }} </li>
+<li> {{ page.content8 }}</li> 
+<li> {{ page.content9 }}</li> 
+</ul>
+
     
-        {% if page.content3 %}
+    </div>
+
+{% endif %}
+
+{% if page.content4 %}
+    <div class="grid-item">
+        
+        <h3 class="heading-3">  {{ page.content10 }}  </h3>
+  <ul>
+    <li>  {{ page.content11 }} </li>
+    <li> {{ page.content12 }} </li>
+    <li> {{ page.content13 }} </li>
+    <li> {{ page.content14 }}</li> 
+    <li> {{ page.content15 }}</li> 
+  
+   </ul>
+   
+        
+        </div>
+        <div class="grid-item"> </div>
+    </div>
+{% endif %}
+            
+        {% endif %}
+        <br>
+        <div class="row-3 content-grid  {{ page.grid_layout }}">
             <div class="grid-item">
-             
-                {% if page.image3 %}
-                    <img src="{{ page.image3.url }}">
-                    
-                {% endif %}
                 {% if page.image2 %}
                 <img src="{{ page.image2.url }}">
             {% endif %}
             
-            </div>
-        {% endif %}
-    
-        {% if page.content4 %}
+            </div>  
             <div class="grid-item">
-             
-               
+                {% if page.image3 %}
+                <img src="{{ page.image3.url }}">
+                
+            {% endif %}
+            </div>  
+        
+            <div class="grid-item">
+                {% if page.image4 %}
+                <img src="{{ page.image4.url }}">
+            {% endif %}
             </div>
-        {% endif %}
-    
-    </div>
-
-
-
-    <div class="grid-container {{ page.grid_layout }}">
-    <div class="grid-item">
-        <h2>{{ page.content5 }}</h2>
-        <br>
-        <p>{{ page.content6 }}</p>
-        <br>
-        <p>{{ page.content7 }}</p>
+           
   
-    </div>
-    <div class="grid-item">
-        {% if page.image4 %}
-        <img src="{{ page.image4.url }}">
-    {% endif %}
-    </div>
-    <div class="grid-item">
-        <p>{{ page.content8 }}</p>
-    </div>
-    <div class="grid-item">
-      
-      
-   
-   
-    </div>
-</div>
+        </div>
+           
 
 
 {% endblock %}
