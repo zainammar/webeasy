@@ -1,14 +1,12 @@
+
 body { 
     background-color:#D4D6CA ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 0px;
     margin: 0px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
-*{
-    padding: 0px;
-    margin: 0px;
-}
+
   nav ul {
     list-style: none;
     display: flex;
@@ -35,6 +33,7 @@ nav a:hover {
 }
 .bg-x3{
     background-color: #C97D60;
+    
 }
 .bg-x4{
     background-color:#D4D6CA ;
@@ -138,14 +137,10 @@ button {
       }
 
        /*6 columns, 1 row */
-       .row-8 {
-        grid-template-columns: 2fr 4fr;
-       
-    }
-
+    
          /*7 columns, 1 row */
          .row-8 {
-        grid-template-columns: 4fr 2fr;
+        grid-template-columns: 2fr 1fr;
        
     }
 
@@ -155,9 +150,18 @@ button {
     }
 
     .row-10 {
-        grid-template-columns:0.5fr 2fr 2fr 0.5fr;
+        grid-template-columns:1fr 1fr 1fr;
        
     }
+    .row-11 {
+        grid-template-columns:2fr 2fr ;
+       
+    }
+    .row-13 {
+        grid-template-columns:2fr 1fr ;
+       
+    }
+
   }
   
   
@@ -174,9 +178,9 @@ button {
  
   }
 
-/* img{
+ .img-1{
 
-    width: 80%;
+    width: 100%;
     border: #34113F;
     box-shadow: #C97D60;
     border-style: double;
@@ -184,7 +188,17 @@ button {
     padding: 10px;
     margin: 10px;
 
-} */
+} 
+
+
+
+.img-2{
+    width: 70%;
+    height: auto;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+}
 .grid-container {
     display: grid;
     gap: 20px;
@@ -208,10 +222,7 @@ button {
 
 
 
-img {
-    max-width: 100%;
-    height: auto;
-}
+
 
 
 .text-1{
@@ -219,10 +230,32 @@ img {
     padding: 10px;
 }
 
-li{
+
+.text-2{
+    color: #FBFEF9;
     font-family: 'Times New Roman', Times, serif;
     font-size: larger;
+    margin: 10px;
+    padding: 10px;
+}
+.text-3{
+    color:  #34113F;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+
+li{
+    font-family: 'Times New Roman', Times, serif;
+    color: #34113F;
+    font-size: larger;
    line-height: 1.5;
+   padding: 0px;
+   margin: 0px;
 
 }
 

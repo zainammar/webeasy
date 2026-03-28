@@ -24,62 +24,166 @@
     {% endif %}
 </head>
 <body>
-    <div class="row-8 content-grid  {{ page.grid_layout }}">
-   
-     
-            <div class="grid-item text-1">
-                <h2>  {% if page.content1 %}
-                {{ page.content1 }} </h2>
-               <br>
-            <p class="para-2"> {% if page.content2 %}
-            {{ page.content2 }}  </p>
-            <p class="para-2">  {% if page.content3 %}
-           {{ page.content3 }} </p>
-            </div>
-        {% endif %}
+<div class="row-9 content-grid  {{ page.grid_layout }}">
+    <div class="grid-item text-1">
+        <h2>  {% if page.content1 %}
+        {{ page.content1 }} </h2>
+       <br>
+    <p class="para-2"> {% if page.content2 %}
+    {{ page.content2 }}  </p>
+    <p class="para-2">  {% if page.content3 %}
+   {{ page.content3 }} </p>
+    </div>
+{% endif %}
+    <div class="grid-item">
+        {% if page.image1 %}
+        <img src="{{ page.image1.url }}">
+    {% endif %}
+</div>   
+
+           
+    
+        <div class="grid-item">
+            <h3 class="heading-3">  {{ page.content4 }}  </h3>
+    <ul>
+    <li>  {{ page.content5 }} </li>
+    <li> {{ page.content6 }} </li>
+    <li> {{ page.content7 }} </li>
+    <li> {{ page.content8 }}</li> 
+    <li> {{ page.content9 }}</li> 
+    </ul>
+    
+        
+        </div>
     
           
-                <div class="grid-item">
-                {% if page.image1 %}
-                <img class="img" src="{{ page.image1.url }}">
-            {% endif %}
-        </div>   
-    
-    </div>
+    </div> 
       
 
+<!-- background -->
 
+<div class="row-1 content-grid  {{ page.grid_layout }}">
+    <div class="grid-item bg-1"> 
+        <h3 class="heading-6">  {{ page.content10 }}  </h3>
+    </div>  </div>
 
-<div class="row-10 content-grid  {{ page.grid_layout }}">
-    <div class="grid-item"> </div>
-    <div class="grid-item">
-        <h3 class="heading-3">  {{ page.content4 }}  </h3>
-<ul>
-<li>  {{ page.content5 }} </li>
-<li> {{ page.content6 }} </li>
-<li> {{ page.content7 }} </li>
-<li> {{ page.content8 }}</li> 
-<li> {{ page.content9 }}</li> 
-</ul>
+<br>
+    <div class="row-3 content-grid  {{ page.grid_layout }}">
 
+      
+
+        <div class="grid-item"> 
+            
+                {% if page.image2 %}
+                <img src="{{ page.image4.url }}">
+            {% endif %}
+            
+            </div>  
+            <div class="grid-item">
+                <h3 class="heading-3">   {{ page.content11 }}   </h3>
+                <ul>
+                 
+                  <li> {{ page.content12 }} </li>
+                  <li> {{ page.content13 }} </li>
+                  <li> {{ page.content14 }}</li> 
+                  <li> {{ page.content15 }}</li> 
+                  <li> {{ page.content16 }}</li> 
+                
+                 </ul>
+            </div>
+            <div class="grid-item"> 
+
+                <h3 class="heading-3">   {{ page.content17 }}   </h3>
+                <ul>
+                 
+                  <li> {{ page.content18 }} </li>
+                  <li> {{ page.content19 }} </li>
+                  <li> {{ page.content20 }}</li> 
+                  <li> {{ page.content21 }}</li> 
+                  <li> {{ page.content22 }}</li> 
+                
+                 </ul>
+        
+                    </div> 
+             
+        </div> 
     
-    </div>
+    
+           
+    </br> 
+
+    <div class="row-7 content-grid  {{ page.grid_layout }}">
+        <div class="grid-item">  </div>
+      
+        
+            <div class="grid-item bg-x1"> 
+
+                <h3 class="heading-7">   {{ page.content23 }}   </h3>
+            
+                 
+                  <p class="text-2"> {{ page.content24 }} </p>
+                  <p class="text-2"> {{ page.content25 }} </p>
+                  <p class="text-2"> {{ page.content26 }} </p> 
+                  <p class="text-2"> {{ page.content27 }} </p> 
+                  <p class="text-2"> {{ page.content28 }} </p> 
+                  <p class="text-2"> {{ page.content29 }} </p> 
+                  <p class="text-2"> {{ page.content30 }} </p> 
+                
+               
+        
+                    </div> 
+                    <div class="grid-item"> 
+                        <div class="grid-item">
+                            {% if page.image3 %}
+                            <img src="{{ page.image3.url }}">
+                            
+                        {% endif %}
+                        </div>
+                    
+                    </div>
+
+                    <div class="grid-item">  </div>
+             
+        </div> 
+    
+    
+           
+    </br> 
+
+    <div class="row-1 content-grid  {{ page.grid_layout }}">
+        <div class="grid-item bg-2"> 
+            <h3 class="heading-8">  {{ page.content31 }}  </h3>
+        </div>  </div>
+    
+        <div class="row-1 content-grid  {{ page.grid_layout }}">
+            <div class="grid-item"> 
+                <h3 class="text-3">  {{ page.content32 }}  </h3>
+            </div>  </div>
+<!-- 
+      <div class="grid-item">
+            {% if page.image4 %}
+            <img class="img-2" src="{{ page.image4.url }}">
+        {% endif %}
+        </div>
+
+
+        
+    <div class="grid-item"> 
+        <div class="grid-item">
+            {% if page.image3 %}
+            <img src="{{ page.image3.url }}">
+            
+        {% endif %}
+        </div>  
+ 
+
 
 {% endif %}
 
 {% if page.content4 %}
     <div class="grid-item">
         
-        <h3 class="heading-3">  {{ page.content10 }}  </h3>
-  <ul>
-    <li>  {{ page.content11 }} </li>
-    <li> {{ page.content12 }} </li>
-    <li> {{ page.content13 }} </li>
-    <li> {{ page.content14 }}</li> 
-    <li> {{ page.content15 }}</li> 
-  
-   </ul>
-   
+
         
         </div>
         <div class="grid-item"> </div>
@@ -110,7 +214,7 @@
            
   
         </div>
-           
+            -->
 
 
 {% endblock %}

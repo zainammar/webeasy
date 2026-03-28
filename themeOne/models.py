@@ -47,13 +47,26 @@ class Page(models.Model):
     content15 = models.TextField(blank=True)
     content16 = models.TextField(blank=True)
 
+    content17 = models.TextField(blank=True)
+    content18 = models.TextField(blank=True)
+    content19 = models.TextField(blank=True)
+    content20 = models.TextField(blank=True)
+    content21 = models.TextField(blank=True)
+    content22 = models.TextField(blank=True)
+    content23 = models.TextField(blank=True)
+    content24 = models.TextField(blank=True)
+
+    content25 = models.TextField(blank=True)
+    content26 = models.TextField(blank=True)
+    content27 = models.TextField(blank=True)
+    content28 = models.TextField(blank=True)
+    content29 = models.TextField(blank=True)
+    content30 = models.TextField(blank=True)
+    content31 = models.TextField(blank=True)
+    content32 = models.TextField(blank=True)
 
     GRID_CHOICES2 = (
-        # ('1col', '1 Column'),
-        # ('2col', '2 Columns'),
-        # ('3col', '3 Columns'),
-        # ('4col', '4 Columns'),
-
+    
         ('col-1', '1 Column'),
         ('col-2', '2 Columns'),
         ('col-3', '3 Columns'),
