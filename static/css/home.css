@@ -47,6 +47,25 @@ nav a:hover {
     background-color: #EEF0F2;
 }
 
+.bg-x68
+{
+    background-color: #FBFEF9;
+    border: #34113F;
+    border-radius: 20px;
+    border-style: double;
+    padding: 10px;
+    margin: 10px;
+}
+
+.bg-x67
+{
+    background-color:#D4D6CA ;
+    color:#01080e ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+    padding: 10px;
+    margin: 10px;
+}
 
 button {
     background-color: #C97D60;
@@ -54,6 +73,10 @@ button {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+}
+button:hover {
+    background-color: #4A6670;   
+    color: #34113F ;
 }
 .grid-container1 {
     grid-template-columns: repeat(3fr, 1fr , 1fr );
@@ -145,7 +168,7 @@ button {
     
          /*7 columns, 1 row */
          .row-8 {
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 2fr 2fr 1fr ;
        
     }
 
@@ -153,7 +176,6 @@ button {
         grid-template-columns: 1fr 1fr 1fr ;
        
     }
-
     .row-10 {
         grid-template-columns:1fr 1fr 1fr;
        
@@ -204,6 +226,11 @@ button {
     padding: 10px;
     margin: 10px;
 }
+
+
+
+
+
 .grid-container {
     display: grid;
     gap: 20px;
@@ -248,13 +275,13 @@ button {
 .heading-4{
     color:#34113F;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 50px;
+    font-size: 70px;
     line-height: 1.5;
 }
 .heading-5{
     color:#34113F;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 50px;
+    font-size: 20px;
     line-height: 1.5;
 }
 
@@ -382,12 +409,12 @@ body {
 /* Buttons */
 .prev, .next {
   position: absolute;
+  width: 10%;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
+  background-color: rgba(250, 200, 2, 0.5);
+  color: rgb(0, 0, 0);
   border: none;
-  padding: 10px;
   cursor: pointer;
 }
 
@@ -513,7 +540,7 @@ body {
 }
 
 .logo-img {
-    max-height: 50px;
+    max-height: 150px;
     width: auto;
 }
 @media screen and (max-width: 600px) {

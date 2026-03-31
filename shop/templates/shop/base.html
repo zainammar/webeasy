@@ -46,11 +46,15 @@
 <div class="row-8 content-grid bg-x6">
 
     <div class="grid-item-1">
-      <h3 class="heading-4"> Buy Now</h3> 
+     
+      <h3 class="heading-4">  <img src="{% static 'shop/images/zain-logo.png' %}" class="logo-img" alt="Logo"> Buy Now</h3> 
 <h3 class="heading-5"> Shopping Made Simple </h3> 
 <p class="para-3"> Online Shop is a structured Django-based eCommerce project that demonstrates modular design, reusable templates, and practical implementation of core web development concepts. It is ideal for learning and scalable for real-world applications.
 </p>
-<h3 class="heading-2"> Upgrade Your Lifestyle Today</h3>
+
+    </div>
+    <div class="grid-item-1">
+      <h3 class="heading-2"> Upgrade Your Lifestyle Today</h3>
 <p class="para-1">Welcome to our online store, where quality meets affordability and convenience is just a click away. Explore a wide range of products carefully selected to match your lifestyle, from the latest trends to everyday essentials. We are committed to providing a seamless shopping experience with secure payments, fast delivery, and reliable customer support. Shop with confidence and discover amazing deals designed to bring you the best value every day. </p>
 
     </div>
@@ -90,6 +94,12 @@
 <footer>
     <div class="row-9 content-grid bg-1">
 
+      <div class="grid-item-1">
+        <h3 class="heading-1">About Us</h3>
+        <p class="para-4">
+            We provide quality products and a seamless shopping experience.
+        </p>
+    </div>
         <div class="grid-item-1">
             <a href="{% url 'home' %}">
                 <img src="{% static 'shop/images/logo.png' %}" alt="Logo" class="logo-img">
@@ -105,12 +115,6 @@
             </p>
         </div>
 
-        <div class="grid-item-1">
-            <h3 class="heading-1">About Us</h3>
-            <p class="para-4">
-                We provide quality products and a seamless shopping experience.
-            </p>
-        </div>
 
     </div>
 </footer>

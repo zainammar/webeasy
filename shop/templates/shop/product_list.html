@@ -10,21 +10,21 @@
     list-style-type: none;
     margin: 5px 0;
     padding: 10px;
-    background-color:  #34113F;
+    background-color:  #C97D60;
     border-radius: 5px;
     text-decoration: none;
     width: 300px;
     text-decoration: none !important;
-    color:white;
+    color:rgb(0, 0, 0);
   }
 a{
   text-decoration: none !important;
-  color: #C97D60;
+  color: #000000;
 
 }
 </style>
-
-<div class="row-2 content-grid bg-x5">
+<!-- Main Shop Page -->
+<div class="row-3 content-grid bg-x5">
 
   <div class="grid-item-1">
     <div class="category-link">
@@ -42,16 +42,31 @@ a{
 
   </div>
 
-  <div class="grid-item-1">
+  <div class="grid-item-1 bg-x68">
     <h2>Products </h2>
     <ul>
         {% for product in products %}
         <li class="btn-a  category">
                 <a href="{% url 'product_detail' product.slug %}">{{ product.name }}</a>
-                - ${{ product.price }}
+              
             </li>
+            <h1>{{ product.name }}</h1>
+            <img src="{{ product.image.url }}" width="200">
+
+            <p class="bg-x67"> <b> Product Description: </b> <br> {{ product.description }} </p>
+            <p class="bg-x67"> Price: ${{ product.price }}</p>
+            <button>  <a href="{% url 'product_detail' product.slug %}">Read More</a> </button>
+         
+ 
+ 
+
+  </div>
+  <div class="grid-item-1  bg-x68">
+      
+
+           
         {% endfor %}
-    </ul>
+  
     {% endblock %}
 
   </div>
