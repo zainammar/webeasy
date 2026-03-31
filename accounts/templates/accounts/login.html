@@ -62,36 +62,39 @@ button {
 {% block content %}
 
 <h2>Login</h2>
-<div class="container">
-    <div></div>
-    <div>
+<div class="row-8 content-grid bg-x6">
+
+    <div class="grid-item-1">
         <p class="top-text">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis quasi, quia aspernatur hic consectetur corrupti at quibusdam a in ipsa enim commodi unde suscipit nemo modi deserunt minima maiores.
 
         </p>
-    </div>
-    <div>
-        <form method="post">
+
+   </div>
+   <div class="grid-item-1">
+
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Login</button>
-    </form></div>
-    <div></div>
-</div>
-<div class="container">
-    <div></div>
-    <div>
-        <p class="top-text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis quasi, quia aspernatur hic consectetur corrupti at quibusdam a in ipsa enim commodi unde suscipit nemo modi deserunt minima maiores.
+    </form>
+    <br>
 
-        </p>
+    <button>
+        <a href="{% url 'signup' %}">Signup</a>
+    </button>
+   </div>
+
     </div>
     <div>
-        <button>
-            <a href="{% url 'signup' %}">Signup</a>
-        </button>
+       
+    </div>
+    <div>
+      </div>
+    <div></div>
+</div>
+
         
         {% endblock %}
-    </form></div>
-    <div></div>
+
 </div>

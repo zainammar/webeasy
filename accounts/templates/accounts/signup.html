@@ -1,108 +1,56 @@
-
-<style>
-    body {background-color :#D4D6CA ;
-    color: #34113F ;
-    padding: 10px;
-    margin: 10px;
-
-}
-
-
-
-
-.grid-container {
-    display: grid;
-    gap: 20px;
-}
-
-.grid-container.col-1 { /* Changed from .grid-container.1col */
-    grid-template-columns: 1fr;
-}
-
-.grid-container.col-2 { /* Changed from .grid-container.2col */
-    grid-template-columns: repeat(1fr, 1fr);
-}
-
-.grid-container.col-3 { /* Changed from .grid-container.3col */
-    grid-template-columns: repeat(3, 1fr);
-}
-
-button {
-    background-color: #C97D60;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.button:hover {
-  background-color: #04AA6D;
-  color: white;
-}
-
-</style>
-<style>
-    .container {
-      display: grid;
-      grid-template-columns:10% 50% 30% 10%;
-    
-      padding: 10px;
-    }
-    .container div {
-
- 
-      padding: 10px;
-      font-size: 20px;
-      text-align:left;
-    }
-
-    .top-text{
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        font-size: large;
-        color: #34113F ;
-    }
-    </style>
-
 {% extends "shop/base.html" %}
+{% load static %}
+
 {% block content %}
-<h2>Register</h2>
-<div class="container">
-    <div></div>
-    <div>
-        <p class="top-text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis quasi, quia aspernatur hic consectetur corrupti at quibusdam a in ipsa enim commodi unde suscipit nemo modi deserunt minima maiores.
 
-        </p>
+<section class="signup-section">
+
+    <h2 class="page-title">Create Account</h2>
+
   
+    <div class="row-2 content-grid  {{ page.grid_layout }}">
+
+        <!-- Left Content -->
+        <div class="grid-item">
+            <p class="top-text">
+                Welcome! Create your account to start shopping and explore amazing products.
+            </p>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="grid-item">
+            <form method="post" class="signup-form">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+                
+                <button type="submit" class="btn-primary">
+                    Create Account
+                </button>
+            </form>
+        </div>
+
     </div>
-    <div>
-        <p class="top-text">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Create Account</button>
-        </form>
-        </p>
+
+    <!-- Bottom Section -->
+  
+    <div class="row-2 content-grid  {{ page.grid_layout }}">
+
+        <div class="grid-item">
+            <p class="top-text">
+                Already part of our community? Login and continue your journey with us.
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <p class="login-text">
+                Already have an account?<br>
+                <a href="{% url 'login' %}" class="btn-secondary">Login</a>
+            </p>
+        </div>
+
     </div>
 
+</section>
 
-    <div></div>
-
-  </div>
-  <div class="container">
-    <div></div>
-    <div>
-        <p class="top-text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis quasi, quia aspernatur hic consectetur corrupti at quibusdam a in ipsa enim commodi unde suscipit nemo modi deserunt minima maiores.
-
-        </p>
-    </div>
-    <div> <p>Already have an account? <br>
-        <button> <a href="{% url 'login' %}">Login</a> </button>  </p></div>
-
-    <div></div>
-
-  </div>
-
-
-  {% endblock %}
+{% endblock %}

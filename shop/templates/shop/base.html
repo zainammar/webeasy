@@ -1,468 +1,21 @@
+{% load static %}
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>{% block title %}My Shop{% endblock %}</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"> <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}My Shop{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-<style>
-  /* SLIDER */
-.slider {
-  position: relative;
-  max-width: 100%;
-  height: 400px;
-  overflow: hidden;
-  margin: 20px auto;
-}
-
-.slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-  min-width: 100%;
-}
-
-.slide img {
-  width: 100%;
-  height:auto;
-  object-fit: cover;
-}
-
-/* Buttons */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-</style>
-<style>
-body { 
-    background-color:#D4D6CA ;
-    padding: 10px;
-    margin: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-  }
-
-  button {
-    background-color: #C97D60;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-.fotter-text{
-  background-color: #34113F;
-  color: #C97D60;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: large;
-  font-weight: 300;
-}
-.topnav {
-  overflow: hidden;
-  background-color: #4A6670;
-}
-
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.active {
-  background-color: #34113F;
-  color: white;
-}
-
-.topnav .icon {
-  display: none;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 17px;    
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #34113F;
-  color: white;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-@media screen and (max-width: 600px) {
-  .topnav a:not(:first-child), .dropdown .dropbtn {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .topnav.responsive .dropdown {float: none;}
-  .topnav.responsive .dropdown-content {position: relative;}
-  .topnav.responsive .dropdown .dropbtn {
-    display: block;
-    width: 100%;
-    text-align: left;
-  }
-}
-
-
-</style>
-<style>
-.logo-img {
-    max-height: 50px;
-    width: auto;
-}
-@media screen and (max-width: 600px) {
-    .logo-img {
-        max-height: 40px;
-    }
-}
-
-.header-im {
-    max-height: 300px;
-    width: auto;
-}
-@media screen and (max-width: 600px) {
-    .logo-img {
-        max-height: 40px;
-    }
-}
-/* GRID */
-
-  /* Grid Content */
-  .content-grid {
-    display: grid;
-    gap: 10px;
-  }
-  
- 
-
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: 200px 300px; /* First column 200px, second column 300px */
-
-    
-  }
-  
-  .grid-item-1 {
-    padding:10px;
-    margin: 10px;
-    text-align: left;  
-  }
-  
-  .grid-item-2 {
-    padding:10px;
-    text-align: left;  
-  }
-  
-  /* Mobile First - 1 column for all rows */
-  .row-1, .row-2, .row-3, .row-4 {
-    display: grid;
-   
-    
-   
-  }
-  
-  /* Desktop View */
-  @media screen and (min-width: 768px) {
-  
-    /* 1 column, 1 row (remains the same) */
-    .row-1 {
-        grid-template-columns: 1fr;
-       
-    }
-  
-    /* 2 columns, 1 row */
-    .row-2 {
-        grid-template-columns: 1fr 1fr;
-        
-        
-    }
-  
-    /* 3 columns, 1 row */
-    .row-3 {
-        grid-template-columns: 1fr 1fr 1fr;
-       
-    }
-  
-    /* 4 columns, 1 row */
-    .row-4 {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-       
-    }
-  
-    /* 5 columns, 1 row */
-    .row-5 {
-      grid-template-columns: 1fr 2fr 1fr 1fr;
-     
-  }
-
-      /*6 columns, 1 row */
-      .row-6 {
-        grid-template-columns: 1fr 3fr 1fr;
-       
-    }
-
-        /*6 columns, 1 row */
-        .row-7 {
-          grid-template-columns: 1fr 2fr 2fr 1fr;
-         
-      }
-
-       /*6 columns, 1 row */
-       .row-8 {
-        grid-template-columns: 2fr 4fr;
-       
-    }
-
-         /*7 columns, 1 row */
-         .row-8 {
-        grid-template-columns: 4fr 2fr;
-       
-    }
-
-    .row-9{
-        grid-template-columns: 1fr 1fr 1fr ;
-       
-    }
-  }
-  
-  
-  .grid-item img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-
-    .bg-1{
-      background-color:  #D4D6CA;
-   
- 
-  }
-  .bg-2{
-      background-color:  #E8DDB5;
-   
- 
-  }
-  .zxc{
-    color: 
-    
-#34113F
-#4A6670
-#C97D60
-#E8DDB5
-
-
-#D4D6CA
-#FBFEF9;
-  }
-
-  .heading-1{
-    color:#ede8ef;
-    font-family: "Fjalla One", sans-serif;
-    font-weight: 400;
-    font-size: xx-large;
-    font-weight: bolder;
-
-  }
-  .heading-2{
-    color:#D4D6CA;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size:xx-large;
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
-
-  }
-  .heading-4{
-    color:#34113F;
-    font-family: "Fjalla One", sans-serif;
-    font-size:100px;
-    font-weight: bolder;
-
-  }
-  .heading-5{
-    color:#34113F;
-    font-family: "Fjalla One", sans-serif;
-    font-size:50px;
-    font-weight: bolder;
-
-  }
-  .heading-6{
-    color:#fefefe;
-    font-family: "Fjalla One", sans-serif;
-    font-size:70px;
-    font-weight: bolder;
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
-
-  }
-  .heading-8{
-    color:#34113F;
-    font-family: "Fjalla One", sans-serif;
-    font-size:70px;
-    font-weight: bolder;
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
-
-  }
-
-
-  .heading-7{
-    color:#D4D6CA;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size:x-large;
-    text-align:left;
-    padding: 10px;
-    margin: 10px;
-
-  }
-  .heading-9{
-    color:#D4D6CA;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size:large;
-    text-align:left;
-    padding: 10px;
-    margin: 10px;
-
-  }
-  .para-1{
-    color:#faf4fb;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: large;
-    line-height: 1.5;
-  }
-
-  .para-2{
-    color:#34113F;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: large;
-    line-height: 1.5;
-    padding: 10px;
-    margin: 10px;
-  }
-  .para-3{
-    color:#34113F;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 30px;
-    line-height: 1.5;
-    padding: 10px;
-    margin: 10px;
-  }
-
-
-  
-
-  
-</style>
-<script>
-  let index = 0;
-  
-  function moveSlide(step) {
-    const slides = document.querySelector('.slides');
-    const totalSlides = document.querySelectorAll('.slide').length;
-  
-    index += step;
-  
-    if (index >= totalSlides) index = 0;
-    if (index < 0) index = totalSlides - 1;
-  
-    slides.style.transform = `translateX(-${index * 100}%)`;
-  }
-  
-  // Auto slide
-  setInterval(() => {
-    moveSlide(1);
-  }, 3000);
-  </script>
+    <!-- Extra CSS (per page) -->
+    {% block extra_css %}{% endblock %}
 </head>
-<body>
-  
-  {% load static %}
 
-</div>
+<body>
+
+<!-- NAVBAR -->
 <div class="topnav" id="myTopnav">
     <a href="{% url 'home' %}">Home</a>
     <a href="{% url 'page_detail' 'about-us' %}">About Us</a>
-    <a href="{% url 'page_detail' 'contact-us' %}">Contact-us</a>
-    <!-- <a href="{% url 'product_list' %}">Products</a> -->
+    <a href="{% url 'page_detail' 'contact-us' %}">Contact Us</a>
     <a href="/shop/">Shop</a>
     <a href="{% url 'cart_detail' %}">Cart</a>
+
     {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">Logout</a>
     {% else %}
@@ -470,156 +23,123 @@ body {
         <a href="{% url 'signup' %}">Signup</a>
     {% endif %}
 
-    {# Add Categories here #}
     {% if categories %}
     <div class="dropdown">
-      <button class="dropbtn">Dropdown 
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <div class="category-nav">
-            <strong>Categories:</strong>
-            <a href="{% url 'product_list' %}">All</a> {# Link to show all products #}
+        <button class="dropbtn">
+            Categories <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="{% url 'product_list' %}">All</a>
             {% for cat in categories %}
-                <a href="{% url 'product_list_by_category' cat.slug %}">{{ cat.name }}</a>
+                <a href="{% url 'product_list_by_category' cat.slug %}">
+                    {{ cat.name }}
+                </a>
             {% endfor %}
-            {% endif %}
-            <a href="javascript:void(0);" style="font-size:15px;color: red;" class="icon" onclick="myFunction()">&#9776;</a>
         </div>
-       
-   
-      </div>
-    </div> 
-   
+    </div>
+    {% endif %}
 
-  </div>
-  <div>
-    <div class="row-8 content-grid bg-2">
+    <a href="javascript:void(0);" class="icon" onclick="toggleNav()">&#9776;</a>
+</div>
 
-      
-  
-      <div class="grid-item-1">
-        <h3 class="heading-4"> Buy Now</h3>
-        <h3 class="heading-5"> Shopping Made Simple </h3>
-     <p class="para-3"> Online Shop is a structured Django-based eCommerce project that demonstrates modular design, reusable templates, and practical implementation of core web development concepts. It is ideal for learning and scalable for real-world applications.
-    </p>
-   
-      </div>
-      <div class="grid-item-1">
+<!-- HERO SECTION -->
+<div class="row-8 content-grid bg-x6">
+
+    <div class="grid-item-1">
+      <h3 class="heading-4"> Buy Now</h3> 
+<h3 class="heading-5"> Shopping Made Simple </h3> 
+<p class="para-3"> Online Shop is a structured Django-based eCommerce project that demonstrates modular design, reusable templates, and practical implementation of core web development concepts. It is ideal for learning and scalable for real-world applications.
+</p>
+<h3 class="heading-2"> Upgrade Your Lifestyle Today</h3>
+<p class="para-1">Welcome to our online store, where quality meets affordability and convenience is just a click away. Explore a wide range of products carefully selected to match your lifestyle, from the latest trends to everyday essentials. We are committed to providing a seamless shopping experience with secure payments, fast delivery, and reliable customer support. Shop with confidence and discover amazing deals designed to bring you the best value every day. </p>
+
+    </div>
+
+    <div class="grid-item-1">
         <div class="slider">
-          <div class="slides">
-        
-            <div class="slide">
-              <img src="{% static 'shop/images/slide1.png' %}" alt="Slide 1">
+            <div class="slides">
+
+                <div class="slide">
+                    <img src="{% static 'shop/images/slide1.png' %}" alt="Slide 1">
+                </div>
+
+                <div class="slide">
+                    <img src="{% static 'shop/images/slide2.png' %}" alt="Slide 2">
+                </div>
+
+                <div class="slide">
+                    <img src="{% static 'shop/images/slide3.png' %}" alt="Slide 3">
+                </div>
+
             </div>
-        
-            <div class="slide">
-              <img src="{% static 'shop/images/slide2.png' %}" alt="Slide 2">
-            </div>
-        
-            <div class="slide">
-              <img src="{% static 'shop/images/slide3.png' %}" alt="Slide 3">
-            </div>
-        
-          </div>
-        
-          <!-- Buttons -->
-          <button class="prev" onclick="moveSlide(-1)">❮</button>
-          <button class="next" onclick="moveSlide(1)">❯</button>
+
+            <button class="prev" onclick="moveSlide(-1)">❮</button>
+            <button class="next" onclick="moveSlide(1)">❯</button>
         </div>
-   
-     
-    
-      </div>
-  </div>
+    </div>
 
-  <style>
-    /* SLIDER */
-.slider {
-  position: relative;
-  max-width: 100%;
-  height: 400px;
-  overflow: hidden;
-  margin: 20px auto;
-}
+</div>
 
-.slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-  min-width: 100%;
-}
-
-.slide img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
-
-/* Buttons */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-  </style>
-  <script>
-  function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
-  }
-  </script>
-
+<!-- MAIN CONTENT -->
 <main>
     {% block content %}
     {% endblock %}
 </main>
 
+<!-- FOOTER -->
 <footer>
-   
     <div class="row-9 content-grid bg-1">
-      <div class="grid-item-1">
-        <a href="{% url 'home' %}">
-          <img src="{% static 'shop/images/logo.png' %}" alt="My Shop Logo" class="logo-img">
-        </a>
-        <p class="para-1">&copy; {{ year }} My Shop</p>
-        <h3 class="heading-1"> Shopping Made Simple </h3>
-        <!-- <p class="para-1">
-        
-        </p> -->
-      </div>
-      <div class="grid-item-1">
-      
-        <h3 class="heading-1"> Upgrade Your Lifestyle Today</h3>
-        <p class="para-1">Welcome to our online store, where quality meets affordability and convenience is just a click away. Explore a wide range of products carefully selected to match your lifestyle, from the latest trends to everyday essentials. We are committed to providing a seamless shopping experience with secure payments, fast delivery, and reliable customer support. Shop with confidence and discover amazing deals designed to bring you the best value every day. </p>
-     
-    
-      </div>
-      
-  
-      <div class="grid-item-1">
-        <h3 class="heading-1"> Shopping Made Simple </h3>
-        <p class="para-1">
-          There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks 
-        </p>
-      </div>
-  </div>
 
+        <div class="grid-item-1">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'shop/images/logo.png' %}" alt="Logo" class="logo-img">
+            </a>
+            <p class="para-4">&copy; {{ year }} My Shop</p>
+            <h3 class="heading-1">Shopping Made Simple</h3>
+        </div>
+
+        <div class="grid-item-1">
+            <h3 class="heading-1">Upgrade Your Lifestyle</h3>
+            <p class="para-4">
+                Explore a wide range of products with secure payments and fast delivery.
+            </p>
+        </div>
+
+        <div class="grid-item-1">
+            <h3 class="heading-1">About Us</h3>
+            <p class="para-4">
+                We provide quality products and a seamless shopping experience.
+            </p>
+        </div>
+
+    </div>
 </footer>
+
+<!-- SCRIPTS -->
+<script>
+let index = 0;
+
+function moveSlide(step) {
+    const slides = document.querySelector('.slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    index += step;
+
+    if (index >= totalSlides) index = 0;
+    if (index < 0) index = totalSlides - 1;
+
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// Auto slide
+setInterval(() => moveSlide(1), 3000);
+
+// Responsive navbar
+function toggleNav() {
+    const nav = document.getElementById("myTopnav");
+    nav.classList.toggle("responsive");
+}
+</script>
 
 </body>
 </html>

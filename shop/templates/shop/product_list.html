@@ -5,12 +5,7 @@
 
 {% block content %}
 <style>
-  body{
-    background-color:#D4D6CA ;
-    padding: 10px;
-    margin: 10px;
-  }
-  
+
   li{
     list-style-type: none;
     margin: 5px 0;
@@ -28,33 +23,42 @@ a{
 
 }
 </style>
-  <div class="topnav">
-  
+
+<div class="row-2 content-grid bg-x5">
+
+  <div class="grid-item-1">
+    <div class="category-link">
+   <h2> Categories: </h2>
+        <li class="btn-a category-link">
+      <a href="{% url 'product_list' %}">All</a> {# Link to show all products #}
+      {% for cat in categories %}     </li>
+      <li class="btn-a  category">
+        <a href="{% url 'product_list_by_category' cat.slug %}">{{ cat.name }}</a>     
+      </li>
+      {% endfor %}
+    </ul>
+    </div>
+     
+
+  </div>
+
+  <div class="grid-item-1">
+    <h2>Products </h2>
+    <ul>
+        {% for product in products %}
+        <li class="btn-a  category">
+                <a href="{% url 'product_detail' product.slug %}">{{ product.name }}</a>
+                - ${{ product.price }}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+
+  </div>
+
 
 </div>
-<br>
-<div class="category-link">
-  <strong>Categories:</strong>
-  <ul>
-    <li class="btn-a category-link">
-  <a href="{% url 'product_list' %}">All</a> {# Link to show all products #}
-  {% for cat in categories %}     </li>
-  <li class="btn-a  category">
-    <a href="{% url 'product_list_by_category' cat.slug %}">{{ cat.name }}</a>     
-  </li>
-  {% endfor %}
-</ul>
-</div>
- 
+
        
  <br>
-<h1>Products </h1>
-<ul>
-    {% for product in products %}
-    <li class="btn-a  category">
-            <a href="{% url 'product_detail' product.slug %}">{{ product.name }}</a>
-            - ${{ product.price }}
-        </li>
-    {% endfor %}
-</ul>
-{% endblock %}
+
