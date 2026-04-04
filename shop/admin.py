@@ -3,6 +3,11 @@
 from django.contrib import admin
 from.models import Category, Product, Order, OrderItem # Import your new Category model!
 
+from .models import PaymentProof
+
+# Simple registration
+admin.site.register(PaymentProof)
+
 # Admin configuration for the Category model
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):

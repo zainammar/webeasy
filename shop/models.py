@@ -85,3 +85,27 @@ class OrderItem(models.Model):
 
     def item_total(self):
         return self.price * self.quantity # Calculates the total price for this item in the order
+    
+
+
+
+
+class Upload(models.Model):
+    title = models.CharField(max_length=100)
+    file = models.FileField(upload_to='uploads/')
+
+    def __str__(self):
+        return self.title
+    
+
+from django.db import models
+from django.contrib.auth.models import User
+
+class PaymentProof(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    order_id = models.CharField(max_length=100)
+    proof_file = models.FileField(upload_to='payment_proofs/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Payment for {self.order_id} by {self.user.username}"

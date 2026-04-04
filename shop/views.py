@@ -1,6 +1,31 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Product, Order, OrderItem, Category # <-- Make sure Category is imported!
+from django.shortcuts import render, redirect
+from .forms import UploadForm
+from django.http import HttpResponse
+from .models import PaymentProof
+
+
+
+def upload_file(request):
+    if request.method == 'POST':
+        form = UploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = UploadForm()
+    return render(request, 'shop/upload.html', {'form': form})
+
+
+
+def success(request):
+    return HttpResponse("File uploaded successfully ✅")
+
+def payment_proofs_list(request):
+    proofs = PaymentProof.objects.all()
+    return render(request, 'shop/payment_proofs_list.html', {'proofs': proofs})
 
 # Product list
 def product_list(request, category_slug=None): # <-- Added category_slug for filtering
