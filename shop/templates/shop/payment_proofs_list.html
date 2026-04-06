@@ -1,9 +1,0 @@
-<h2>All Uploaded Payment Proofs</h2>
-<ul>
-{% for proof in proofs %}
-    <li>
-        Order: {{ proof.order_id }} - User: {{ proof.user.username }} - Uploaded: {{ proof.uploaded_at }}
-        <a href="{{ proof.proof_file.url }}" target="_blank">View/Download</a>
-    </li>
-{% endfor %}
-</ul>

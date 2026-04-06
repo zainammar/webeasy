@@ -78,8 +78,6 @@ TEMPLATES = [
     },
 ]
 
- #  'APP_DIRS': True, 
-
 WSGI_APPLICATION = 'webeasy.wsgi.application'
 
 # Database
