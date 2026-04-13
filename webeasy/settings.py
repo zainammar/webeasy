@@ -84,15 +84,17 @@ WSGI_APPLICATION = 'webeasy.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'webeasy_db',
-        'USER': 'webeasy_user',
-        'PASSWORD': 'strongpassword123',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql',
+           'NAME': 'webeasy_db',
+           'USER': 'webeasy_user',  # ya 'postgres'
+           'PASSWORD': 'kasimjan0321@',
+           'HOST': 'localhost',
+           'PORT': '5432',
+       }
+   }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 # You can uncomment and configure these if you have specific password policy needs
