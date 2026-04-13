@@ -85,11 +85,14 @@ WSGI_APPLICATION = 'webeasy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3', # This is where your database file will be
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'webeasy_db',
+        'USER': 'webeasy_user',
+        'PASSWORD': 'strongpassword123',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 # You can uncomment and configure these if you have specific password policy needs
