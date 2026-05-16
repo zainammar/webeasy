@@ -269,13 +269,13 @@ button:hover {
 .heading-3{
     color:#34113F;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: xx-large;
+    font-size:large;
     line-height: 1.5;
 }
 .heading-4{
     color:#34113F;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 70px;
+    font-size: 25px;
     line-height: 1.5;
 }
 .heading-5{
@@ -314,7 +314,7 @@ button:hover {
   .para-3{
     color:#34113F;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-size: 10px;
     line-height: 1.5;
   }
 
@@ -540,7 +540,7 @@ body {
 }
 
 .logo-img {
-    max-height: 150px;
+    max-height: 50px;
     width: auto;
 }
 @media screen and (max-width: 600px) {
