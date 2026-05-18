@@ -1,20 +1,36 @@
 {% load static %}
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>{% block title %}My Shop{% endblock %}</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"> <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Shop{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Your trusted online store for quality products and seamless shopping experience.">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
-
-    <!-- Extra CSS (per page) -->
+    
+    <!-- Extra page-specific CSS -->
     {% block extra_css %}{% endblock %}
 </head>
-
 <body>
 
-<!-- NAVBAR -->
+<!-- ========== RESPONSIVE NAVIGATION BAR ========== -->
 <div class="topnav" id="myTopnav">
-<a href="{% url 'home' %}">Home</a>
-<a href="{% url 'page_detail' slug='about-us' %}">About Us</a>
-<a href="{% url 'page_detail' slug='contact-us' %}">Contact Us</a>
+    <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+    <a href="{% url 'page_detail' slug='about-us' %}" class="{% if slug == 'about-us' %}active{% endif %}">About Us</a>
+    <a href="{% url 'page_detail' slug='contact-us' %}" class="{% if slug == 'contact-us' %}active{% endif %}">Contact Us</a>
     <a href="/shop/">Shop</a>
-    <a href="{% url 'cart_detail' %}">Cart</a>
+    <a href="{% url 'cart_detail' %}" class="{% if request.resolver_match.url_name == 'cart_detail' %}active{% endif %}">
+        <i class="fa fa-shopping-cart"></i> Cart
+    </a>
 
     {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">Logout</a>
@@ -29,121 +45,161 @@
             Categories <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a href="{% url 'product_list' %}">All</a>
+            <a href="{% url 'product_list' %}">All Products</a>
             {% for cat in categories %}
-                <a href="{% url 'product_list_by_category' cat.slug %}">
-                    {{ cat.name }}
-                </a>
+                <a href="{% url 'product_list_by_category' cat.slug %}">{{ cat.name }}</a>
             {% endfor %}
         </div>
     </div>
     {% endif %}
 
-    <a href="javascript:void(0);" class="icon" onclick="toggleNav()">&#9776;</a>
+    <a href="javascript:void(0);" class="icon" onclick="toggleNav()" aria-label="Menu">
+        <i class="fa fa-bars"></i>
+    </a>
 </div>
 
-<!-- HERO SECTION -->
-<div class="row-8 content-grid bg-x6">
-
-    <div class="grid-item-1">
-     
-      <h3 class="heading-4">  <img src="{% static 'shop/images/zain-logo.png' %}" class="logo-img" alt="Logo"> Buy Now</h3> 
-<h3 class="heading-5"> Shopping Made Simple </h3> 
-<p class="para-3"> Online Shop is a structured Django-based eCommerce project that demonstrates modular design, reusable templates, and practical implementation of core web development concepts. It is ideal for learning and scalable for real-world applications.
-</p>
-
-    </div>
-    <div class="grid-item-1">
-      <h3 class="heading-2"> Upgrade Your Lifestyle Today</h3>
-<p class="para-1">Welcome to our online store, where quality meets affordability and convenience is just a click away. Explore a wide range of products carefully selected to match your lifestyle, from the latest trends to everyday essentials. We are committed to providing a seamless shopping experience with secure payments, fast delivery, and reliable customer support. Shop with confidence and discover amazing deals designed to bring you the best value every day. </p>
-
+<!-- ========== HERO SECTION (FULLY RESPONSIVE GRID) ========== -->
+<div class="hero-grid row-8 content-grid bg-x6">
+    <div class="grid-item-1 hero-text">
+        <div class="brand-header">
+            <img src="{% static 'shop/images/zain-logo.png' %}" class="logo-img" alt="Zain Logo">
+            <h3 class="heading-5">Shopping Made Simple</h3>
+        </div>
+        <p class="para-3">
+            Online Shop is a structured Django-based eCommerce project that demonstrates modular design, 
+            reusable templates, and practical implementation of core web development concepts. 
+            It is ideal for learning and scalable for real-world applications.
+        </p>
     </div>
 
-    <div class="grid-item-1">
-        <div class="slider">
+    <div class="grid-item-1 slider-container">
+        <div class="slider" aria-label="Featured products slider">
             <div class="slides">
-
-                <div class="slide">
-                    <img src="{% static 'shop/images/slide1.png' %}" alt="Slide 1">
-                </div>
-
-                <div class="slide">
-                    <img src="{% static 'shop/images/slide2.png' %}" alt="Slide 2">
-                </div>
-
-                <div class="slide">
-                    <img src="{% static 'shop/images/slide3.png' %}" alt="Slide 3">
-                </div>
-
+                <div class="slide"><img src="{% static 'shop/images/slide1.png' %}" alt="Slide 1 - Special offers"></div>
+                <div class="slide"><img src="{% static 'shop/images/slide2.png' %}" alt="Slide 2 - New arrivals"></div>
+                <div class="slide"><img src="{% static 'shop/images/slide3.png' %}" alt="Slide 3 - Trending products"></div>
             </div>
-
-            <button class="prev" onclick="moveSlide(-1)">❮</button>
-            <button class="next" onclick="moveSlide(1)">❯</button>
+            <button class="prev" onclick="moveSlide(-1)" aria-label="Previous slide">❮</button>
+            <button class="next" onclick="moveSlide(1)" aria-label="Next slide">❯</button>
         </div>
     </div>
 
+    <div class="grid-item-1 hero-text">
+        <h3 class="heading-2">Upgrade Your Lifestyle Today</h3>
+        <p class="para-3">
+            Welcome to our online store, where quality meets affordability and convenience is just a click away. 
+            Explore a wide range of products carefully selected to match your lifestyle, from the latest trends to everyday essentials.
+        </p>
+    </div>
 </div>
 
-<!-- MAIN CONTENT -->
-<main>
+<!-- ========== MAIN CONTENT BLOCK ========== -->
+<main class="main-content">
     {% block content %}
+    <!-- Child templates will insert content here -->
     {% endblock %}
 </main>
 
-<!-- FOOTER -->
-<footer>
-    <div class="row-9 content-grid bg-1">
-
-      <div class="grid-item-1">
-        <h3 class="heading-1">About Us</h3>
-        <p class="para-4">
-            We provide quality products and a seamless shopping experience.
-        </p>
-    </div>
-        <div class="grid-item-1">
-            <a href="{% url 'home' %}">
-                <img src="{% static 'shop/images/logo.png' %}" alt="Logo" class="logo-img">
-            </a>
-            <p class="para-4">&copy; {{ year }} My Shop</p>
-            <h3 class="heading-1">Shopping Made Simple</h3>
-        </div>
-
-        <div class="grid-item-1">
-            <h3 class="heading-1">Upgrade Your Lifestyle</h3>
+<!-- ========== FOOTER ========== -->
+<footer class="footer-distributed">
+    <div class="row-9 content-grid bg-1 footer-grid">
+        <div class="grid-item-1 footer-col">
+            <h3 class="heading-1">About Us</h3>
             <p class="para-4">
-                Explore a wide range of products with secure payments and fast delivery.
+                We provide quality products and a seamless shopping experience with secure payments and fast delivery.
             </p>
         </div>
-
-
+        <div class="grid-item-1 footer-col footer-brand">
+            <a href="{% url 'home' %}" class="footer-logo-link">
+                <img src="{% static 'shop/images/logo.png' %}" alt="My Shop Logo" class="logo-img footer-logo">
+            </a>
+            <p class="para-4 copyright">&copy; {% now "Y" %} My Shop. All rights reserved.</p>
+            <p class="para-4 tagline">Shopping Made Simple</p>
+        </div>
+        <div class="grid-item-1 footer-col">
+            <h3 class="heading-1">Upgrade Your Lifestyle</h3>
+            <p class="para-4">
+                Explore a wide range of products with secure payments and fast delivery — Shop with confidence.
+            </p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
     </div>
 </footer>
 
-<!-- SCRIPTS -->
+<!-- ========== SCRIPTS ========== -->
 <script>
-let index = 0;
-
-function moveSlide(step) {
-    const slides = document.querySelector('.slides');
+    // ----- Image Slider Logic (Fully Responsive) -----
+    let slideIndex = 0;
+    const slidesContainer = document.querySelector('.slides');
     const totalSlides = document.querySelectorAll('.slide').length;
-
-    index += step;
-
-    if (index >= totalSlides) index = 0;
-    if (index < 0) index = totalSlides - 1;
-
-    slides.style.transform = `translateX(-${index * 100}%)`;
-}
-
-// Auto slide
-setInterval(() => moveSlide(1), 3000);
-
-// Responsive navbar
-function toggleNav() {
-    const nav = document.getElementById("myTopnav");
-    nav.classList.toggle("responsive");
-}
+    
+    function updateSlidePosition() {
+        if (!slidesContainer) return;
+        slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+    }
+    
+    function moveSlide(step) {
+        slideIndex += step;
+        if (slideIndex >= totalSlides) slideIndex = 0;
+        if (slideIndex < 0) slideIndex = totalSlides - 1;
+        updateSlidePosition();
+    }
+    
+    // Auto-slide every 4 seconds
+    let autoSlideInterval = setInterval(() => moveSlide(1), 4000);
+    
+    // Pause auto-slide on hover (optional but user-friendly)
+    const slider = document.querySelector('.slider');
+    if (slider) {
+        slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        slider.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(() => moveSlide(1), 4000);
+        });
+    }
+    
+    // Responsive navbar toggle (with accessibility)
+    function toggleNav() {
+        const nav = document.getElementById("myTopnav");
+        if (nav) {
+            nav.classList.toggle("responsive");
+            // Optional: change icon when open
+            const icon = nav.querySelector('.icon i');
+            if (icon && nav.classList.contains('responsive')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    }
+    
+    // Close dropdowns when clicking outside (optional but improves UX)
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            const dropdowns = document.getElementsByClassName("dropdown-content");
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.style.display === "block") {
+                    openDropdown.style.display = "none";
+                }
+            }
+        }
+    }
+    
+    // Initialize slider position on load and resize
+    window.addEventListener('load', () => {
+        updateSlidePosition();
+    });
+    window.addEventListener('resize', () => {
+        updateSlidePosition();
+    });
 </script>
 
+{% block extra_js %}{% endblock %}
 </body>
 </html>

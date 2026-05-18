@@ -1,220 +1,131 @@
-
 {% extends "shop/base.html" %}
-{% block content %}
 {% load static %}
-<!-- {% load static %} -->
-<br>
-    <div class="grid-container {{ page.grid_layout }}">
-        {% for section in page.sections.all %}
-            <div class="grid-item">
-                {% if section.image %}
-                    <img src="{{ section.image.url }}">
-                {% endif %}
-                <p>{{ section.content }}</p>
-            </div>
-        {% endfor %}
-    </div>
-<head>
+{% load page_extras %}
 
-    {% load page_extras %}
-
-    <title>{{ page.title }}</title>
+{% block extra_css %}
     {% if page.css_file %}
         <link rel="stylesheet" href="{% static page.css_file %}">
     {% endif %}
-</head>
-<body>
-<div class="row-9 content-grid  {{ page.grid_layout }}">
-    <div class="grid-item text-1">
-        <h2>  {% if page.content1 %}
-        {{ page.content1 }} </h2>
-       <br>
-    <p class="para-2"> {% if page.content2 %}
-    {{ page.content2 }}  </p>
-    <p class="para-2">  {% if page.content3 %}
-   {{ page.content3 }} </p>
+{% endblock %}
+
+{% block title %}{{ page.title }} | My Shop{% endblock %}
+
+{% block content %}
+
+<!-- Section 1: Hero / Intro Grid (row-8 = 3 columns on desktop) -->
+<div class="row-8 content-grid bg-x6">
+    <div class="grid-item-1">
+        <h2>{{ page.content1|default:"" }}</h2>
+        <p class="para-2">{{ page.content2|default:"" }}</p>
+        <p class="para-2">{{ page.content3|default:"" }}</p>
     </div>
-{% endif %}
-    <div class="grid-item">
+    <div class="grid-item-1">
         {% if page.image1 %}
-        <img src="{{ page.image1.url }}">
-    {% endif %}
-</div>   
-
-           
-    
-        <div class="grid-item">
-            <h3 class="heading-3">  {{ page.content4 }}  </h3>
-    <ul>
-    <li>  {{ page.content5 }} </li>
-    <li> {{ page.content6 }} </li>
-    <li> {{ page.content7 }} </li>
-    <li> {{ page.content8 }}</li> 
-    <li> {{ page.content9 }}</li> 
-    </ul>
-    
-        
-        </div>
-    
-          
-    </div> 
-      
-
-<!-- background -->
-
-<div class="row-1 content-grid  {{ page.grid_layout }}">
-    <div class="grid-item bg-1"> 
-        <h3 class="heading-6">  {{ page.content10 }}  </h3>
-    </div>  </div>
-
-<br>
-    <div class="row-3 content-grid  {{ page.grid_layout }}">
-
-      
-
-        <div class="grid-item"> 
-            
-                {% if page.image2 %}
-                <img src="{{ page.image4.url }}">
-            {% endif %}
-            
-            </div>  
-            <div class="grid-item">
-                <h3 class="heading-3">   {{ page.content11 }}   </h3>
-                <ul>
-                 
-                  <li> {{ page.content12 }} </li>
-                  <li> {{ page.content13 }} </li>
-                  <li> {{ page.content14 }}</li> 
-                  <li> {{ page.content15 }}</li> 
-                  <li> {{ page.content16 }}</li> 
-                
-                 </ul>
-            </div>
-            <div class="grid-item"> 
-
-                <h3 class="heading-3">   {{ page.content17 }}   </h3>
-                <ul>
-                 
-                  <li> {{ page.content18 }} </li>
-                  <li> {{ page.content19 }} </li>
-                  <li> {{ page.content20 }}</li> 
-                  <li> {{ page.content21 }}</li> 
-                  <li> {{ page.content22 }}</li> 
-                
-                 </ul>
-        
-                    </div> 
-             
-        </div> 
-    
-    
-           
-    </br> 
-
-    <div class="row-7 content-grid  {{ page.grid_layout }}">
-        <div class="grid-item">  </div>
-      
-        
-            <div class="grid-item bg-x1"> 
-
-                <h3 class="heading-7">   {{ page.content23 }}   </h3>
-            
-                 
-                  <p class="text-2"> {{ page.content24 }} </p>
-                  <p class="text-2"> {{ page.content25 }} </p>
-                  <p class="text-2"> {{ page.content26 }} </p> 
-                  <p class="text-2"> {{ page.content27 }} </p> 
-                  <p class="text-2"> {{ page.content28 }} </p> 
-                  <p class="text-2"> {{ page.content29 }} </p> 
-                  <p class="text-2"> {{ page.content30 }} </p> 
-                
-               
-        
-                    </div> 
-                    <div class="grid-item"> 
-                        <div class="grid-item">
-                            {% if page.image3 %}
-                            <img src="{{ page.image3.url }}">
-                            
-                        {% endif %}
-                        </div>
-                    
-                    </div>
-
-                    <div class="grid-item">  </div>
-             
-        </div> 
-    
-    
-           
-    </br> 
-
-    <div class="row-1 content-grid  {{ page.grid_layout }}">
-        <div class="grid-item bg-x3"> 
-            <h3 class="heading-6">  {{ page.content31 }}  </h3>
-        </div>  </div>
-    
-        <div class="row-1 content-grid  {{ page.grid_layout }}">
-            <div class="grid-item"> 
-                <h3 class="text-3">  {{ page.content32 }}  </h3>
-            </div>  </div>
-<!-- 
-      <div class="grid-item">
-            {% if page.image4 %}
-            <img class="img-2" src="{{ page.image4.url }}">
+            <img src="{{ page.image1.url }}" alt="{{ page.title }} image 1" class="img-responsive">
         {% endif %}
-        </div>
-
-
-        
-    <div class="grid-item"> 
-        <div class="grid-item">
-            {% if page.image3 %}
-            <img src="{{ page.image3.url }}">
-            
-        {% endif %}
-        </div>  
- 
-
-
-{% endif %}
-
-{% if page.content4 %}
-    <div class="grid-item">
-        
-
-        
-        </div>
-        <div class="grid-item"> </div>
     </div>
-{% endif %}
-            
-        {% endif %}
-        <br>
-        <div class="row-3 content-grid  {{ page.grid_layout }}">
-            <div class="grid-item">
-                {% if page.image2 %}
-                <img src="{{ page.image2.url }}">
-            {% endif %}
-            
-            </div>  
-            <div class="grid-item">
-                {% if page.image3 %}
-                <img src="{{ page.image3.url }}">
-                
-            {% endif %}
-            </div>  
-        
-            <div class="grid-item">
-                {% if page.image4 %}
-                <img src="{{ page.image4.url }}">
-            {% endif %}
-            </div>
-           
-  
-        </div>
-            -->
+    <div class="grid-item-1">
+        <h3 class="heading-3">{{ page.content4|default:"" }}</h3>
+        <ul>
+            <li>{{ page.content5|default:"" }}</li>
+            <li>{{ page.content6|default:"" }}</li>
+            <li>{{ page.content7|default:"" }}</li>
+            <li>{{ page.content8|default:"" }}</li>
+            <li>{{ page.content9|default:"" }}</li>
+        </ul>
+    </div>
+</div>
 
+<!-- Section 2: Full-width colored bar -->
+<div class="row-1 content-grid">
+    <div class="grid-item bg-1">
+        <h3 class="heading-6">{{ page.content10|default:"" }}</h3>
+    </div>
+</div>
+
+<!-- Section 3: Two-column row (row-2) -->
+<div class="row-2 content-grid">
+    <div class="grid-item-1">
+        {% if page.image2 %}
+            <img class="img-1" src="{{ page.image2.url }}" alt="Section image">
+        {% endif %}
+    </div>
+    <div class="grid-item-1">
+        <h3 class="heading-3">{{ page.content11|default:"" }}</h3>
+        <ul>
+            <li>{{ page.content12|default:"" }}</li>
+            <li>{{ page.content13|default:"" }}</li>
+            <li>{{ page.content14|default:"" }}</li>
+            <li>{{ page.content15|default:"" }}</li>
+            <li>{{ page.content16|default:"" }}</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Section 4: Two-column again (different content) -->
+<div class="row-2 content-grid">
+    <div class="grid-item-1">
+        <h3 class="heading-3">{{ page.content17|default:"" }}</h3>
+        <ul>
+            <li>{{ page.content18|default:"" }}</li>
+            <li>{{ page.content19|default:"" }}</li>
+            <li>{{ page.content20|default:"" }}</li>
+            <li>{{ page.content21|default:"" }}</li>
+            <li>{{ page.content22|default:"" }}</li>
+        </ul>
+    </div>
+    <div class="grid-item-1">
+        {% if page.image4 %}
+            <img src="{{ page.image4.url }}" alt="Image 4" class="img-responsive">
+        {% endif %}
+    </div>
+</div>
+
+<!-- Section 5: Three-column row (row-7 style) -->
+<div class="row-7 content-grid">
+    <div class="grid-item"></div> <!-- empty spacer -->
+    <div class="grid-item bg-x1">
+        <h3 class="heading-7">{{ page.content23|default:"" }}</h3>
+        <p class="text-2">{{ page.content24|default:"" }}</p>
+        <p class="text-2">{{ page.content25|default:"" }}</p>
+        <p class="text-2">{{ page.content26|default:"" }}</p>
+        <p class="text-2">{{ page.content27|default:"" }}</p>
+        <p class="text-2">{{ page.content28|default:"" }}</p>
+        <p class="text-2">{{ page.content29|default:"" }}</p>
+        <p class="text-2">{{ page.content30|default:"" }}</p>
+    </div>
+    <div class="grid-item">
+        {% if page.image3 %}
+            <img src="{{ page.image3.url }}" alt="Image 3" class="img-responsive">
+        {% endif %}
+    </div>
+    <div class="grid-item"></div> <!-- empty spacer -->
+</div>
+
+<!-- Section 6: Call to action bars -->
+<div class="row-1 content-grid">
+    <div class="grid-item bg-x3">
+        <h3 class="heading-6">{{ page.content31|default:"" }}</h3>
+    </div>
+</div>
+<div class="row-1 content-grid">
+    <div class="grid-item">
+        <h3 class="text-3">{{ page.content32|default:"" }}</h3>
+    </div>
+</div>
+
+<!-- Optional: Dynamic sections from page.sections (if you still want them) -->
+{% if page.sections.all %}
+<div class="row-3 content-grid">
+    {% for section in page.sections.all %}
+        <div class="grid-item-1">
+            {% if section.image %}
+                <img src="{{ section.image.url }}" alt="Section image" class="img-responsive">
+            {% endif %}
+            <p>{{ section.content }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
 
 {% endblock %}
