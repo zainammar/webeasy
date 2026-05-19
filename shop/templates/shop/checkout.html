@@ -3,35 +3,36 @@
 {% block title %}Checkout{% endblock %}
 
 {% block content %}
+{% load humanize %}
+
 
 <div class="row-2 content-grid bg-x5">
 
     <div class="grid-item-1">
         <h1>Checkout</h1>
+
         {% if cart_items %}
-<form method="POST" action="{% url 'checkout' %}">
-    {% csrf_token %}
-
-    <table border="1" cellpadding="10">
-        <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Total</th>
-        </tr>
-        {% for item in cart_items %}
-        <tr>
-            <td>{{ item.product.name }}</td>
-            <td>{{ item.quantity }}</td>
-            <td>${{ item.item_total }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-
-
-</div>
+        <form method="POST" action="{% url 'checkout' %}">
+            {% csrf_token %}
+        
+            <table border="1" cellpadding="10">
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+        
+                {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>PKR {{ item.item_total|intcomma }}</td>
+                </tr>
+                {% endfor %}
+            </table>
 
 <div class="grid-item-1">
-    <p><strong>Total: ${{ total }}</strong></p>  
+    <p><strong>Total: PKR {{ total }}</strong></p>  
     
     <button type="submit">Place Order</button>
 
