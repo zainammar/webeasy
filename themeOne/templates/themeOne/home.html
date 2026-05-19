@@ -6,27 +6,438 @@
     {% if page.css_file %}
         <link rel="stylesheet" href="{% static page.css_file %}">
     {% endif %}
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   PAGE DETAIL — Dark Luxury Theme
+   Same palette: --void #02020A / --navy #05204A /
+                 --orchid #B497D6 / --clay #BFACAA / --mist #E1E2EF
+═══════════════════════════════════════════════════════ */
+:root {
+    --clay:   #BFACAA;
+    --void:   #02020A;
+    --navy:   #05204A;
+    --orchid: #B497D6;
+    --mist:   #E1E2EF;
+    --font-d: 'Playfair Display', serif;
+    --font-b: 'Jost', sans-serif;
+}
+
+/* ── shared section spacing ── */
+.page-section { width: 100%; }
+
+/* ─────────────────────────────────────────────────────
+   SECTION 1 — Hero / Intro   (row-8 → 3 col)
+───────────────────────────────────────────────────── */
+.sec1-grid {
+    background: var(--void);
+    align-items: center;
+    padding: 80px 64px;
+    gap: 48px;
+    position: relative;
+    overflow: hidden;
+}
+.sec1-grid::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(180,151,214,.07) 0%, transparent 65%);
+    top: -150px; right: -100px;
+    pointer-events: none;
+}
+
+/* col 1 — main copy */
+.sec1-copy { display: flex; flex-direction: column; gap: 20px; }
+.sec1-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-b);
+    font-size: .64rem;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--orchid);
+    animation: slideRight .7s .2s both;
+}
+.sec1-eyebrow::before { content:''; width:28px; height:1px; background:var(--orchid); }
+.sec1-h2 {
+    font-family: var(--font-d);
+    font-size: clamp(2rem, 3.5vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--mist);
+    animation: slideRight .7s .34s both;
+}
+.sec1-h2 em { font-style: italic; color: var(--clay); }
+.sec1-para {
+    font-family: var(--font-b);
+    font-size: .88rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: rgba(225,226,239,.48);
+    animation: slideRight .7s .48s both;
+}
+
+/* col 2 — image */
+.sec1-img-wrap {
+    position: relative;
+    animation: fadeInScale .8s .4s both;
+}
+.sec1-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    filter: saturate(.85);
+    transition: filter .4s;
+}
+.sec1-img-wrap:hover img { filter: saturate(1); }
+.sec1-img-wrap::after {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: 4px;
+    border: 1px solid rgba(180,151,214,.15);
+    pointer-events: none;
+}
+
+/* col 3 — list */
+.sec1-list-col { display: flex; flex-direction: column; gap: 16px; animation: slideRight .7s .56s both; }
+.sec1-list-title {
+    font-family: var(--font-d);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--clay);
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(191,172,170,.12);
+}
+.sec1-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 10px;
+}
+.sec1-list li {
+    font-family: var(--font-b);
+    font-size: .82rem;
+    font-weight: 300;
+    color: rgba(225,226,239,.55);
+    line-height: 1.6;
+    display: flex; align-items: flex-start; gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(191,172,170,.06);
+}
+.sec1-list li:last-child { border-bottom: none; }
+.sec1-list li::before {
+    content: '';
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--orchid);
+    flex-shrink: 0;
+    margin-top: 7px;
+}
+
+/* ─────────────────────────────────────────────────────
+   SECTION 2 — Full-width bar   (row-1)
+───────────────────────────────────────────────────── */
+.sec2-bar {
+    background: var(--navy);
+    border-top: 1px solid rgba(180,151,214,.12);
+    border-bottom: 1px solid rgba(180,151,214,.12);
+    padding: 28px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.sec2-bar::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(180,151,214,.06), transparent);
+}
+.sec2-bar-text {
+    font-family: var(--font-d);
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--mist);
+    text-align: center;
+    letter-spacing: .02em;
+}
+
+/* ─────────────────────────────────────────────────────
+   SECTION 3 — Two-col: image + list   (row-2)
+───────────────────────────────────────────────────── */
+.sec3-grid {
+    background: var(--void);
+    align-items: center;
+    padding: 72px 64px;
+    gap: 56px;
+}
+.sec3-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+.sec3-img img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    filter: saturate(.82);
+    transition: transform .6s cubic-bezier(.22,1,.36,1), filter .4s;
+}
+.sec3-img:hover img { transform: scale(1.03); filter: saturate(1); }
+.sec3-img::after {
+    content: '';
+    position: absolute; inset: 0; border-radius: 4px;
+    border: 1px solid rgba(180,151,214,.12);
+    pointer-events: none;
+}
+.sec3-list-col { display: flex; flex-direction: column; gap: 20px; }
+.sec3-title {
+    font-family: var(--font-d);
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    font-weight: 400;
+    color: var(--mist);
+    line-height: 1.2;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(191,172,170,.1);
+}
+.sec3-title em { font-style: italic; color: var(--clay); }
+.styled-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 0;
+}
+.styled-list li {
+    font-family: var(--font-b);
+    font-size: .84rem;
+    font-weight: 300;
+    color: rgba(225,226,239,.55);
+    line-height: 1.65;
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(191,172,170,.07);
+    transition: color .25s;
+}
+.styled-list li:last-child { border-bottom: none; }
+.styled-list li:hover { color: rgba(225,226,239,.85); }
+.li-num {
+    font-family: var(--font-d);
+    font-size: .8rem;
+    font-style: italic;
+    color: var(--orchid);
+    flex-shrink: 0;
+    min-width: 20px;
+    margin-top: 1px;
+}
+
+/* ─────────────────────────────────────────────────────
+   SECTION 4 — Two-col reversed: list + image   (row-2)
+───────────────────────────────────────────────────── */
+.sec4-grid {
+    background: #06060f;
+    align-items: center;
+    padding: 72px 64px;
+    gap: 56px;
+}
+
+/* ─────────────────────────────────────────────────────
+   SECTION 5 — Three-col (row-7)  centered content
+───────────────────────────────────────────────────── */
+.sec5-grid {
+    background: var(--void);
+    align-items: center;
+    padding: 80px 64px;
+    gap: 40px;
+    position: relative;
+}
+.sec5-spacer { /* empty cols */ }
+.sec5-content {
+    background: rgba(5,32,74,.35);
+    border: 1px solid rgba(180,151,214,.12);
+    border-radius: 6px;
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+}
+.sec5-content::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--orchid), transparent);
+}
+.sec5-heading {
+    font-family: var(--font-d);
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--mist);
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(191,172,170,.1);
+}
+.sec5-para {
+    font-family: var(--font-b);
+    font-size: .82rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(225,226,239,.5);
+    display: flex; align-items: flex-start; gap: 10px;
+}
+.sec5-para::before {
+    content: '—';
+    color: var(--orchid);
+    flex-shrink: 0;
+    font-style: normal;
+}
+.sec5-img-col { display: flex; align-items: center; }
+.sec5-img-col img {
+    width: 100%;
+    border-radius: 4px;
+    filter: saturate(.82);
+    display: block;
+    transition: filter .4s;
+    border: 1px solid rgba(180,151,214,.1);
+}
+.sec5-img-col:hover img { filter: saturate(1); }
+
+/* ─────────────────────────────────────────────────────
+   SECTION 6 — CTA bars   (row-1 × 2)
+───────────────────────────────────────────────────── */
+.sec6-cta-primary {
+    background: linear-gradient(135deg, var(--navy) 0%, rgba(180,151,214,.18) 100%);
+    border-top: 1px solid rgba(180,151,214,.15);
+    border-bottom: 1px solid rgba(180,151,214,.15);
+    padding: 32px 64px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    position: relative; overflow: hidden;
+}
+.sec6-cta-primary::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent 10%, rgba(180,151,214,.05) 50%, transparent 90%);
+    animation: shimmer 4s ease-in-out infinite;
+}
+@keyframes shimmer {
+    0%,100% { opacity: 0; } 50% { opacity: 1; }
+}
+.sec6-cta-text {
+    font-family: var(--font-d);
+    font-size: clamp(1rem, 2vw, 1.45rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--mist);
+    letter-spacing: .02em;
+    position: relative; z-index: 1;
+}
+
+.sec6-cta-secondary {
+    background: var(--void);
+    padding: 24px 64px;
+    display: flex; align-items: center; justify-content: center;
+}
+.sec6-cta-sub {
+    font-family: var(--font-b);
+    font-size: .82rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    color: rgba(191,172,170,.45);
+    text-align: center;
+}
+
+/* ─────────────────────────────────────────────────────
+   SECTION 7 — Dynamic sections   (row-3)
+───────────────────────────────────────────────────── */
+.sec7-grid {
+    background: #06060f;
+    align-items: start;
+    padding: 72px 64px;
+    gap: 32px;
+}
+.sec7-card {
+    background: rgba(5,32,74,.25);
+    border: 1px solid rgba(180,151,214,.1);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color .3s, transform .3s;
+}
+.sec7-card:hover {
+    border-color: rgba(180,151,214,.3);
+    transform: translateY(-4px);
+}
+.sec7-card img {
+    width: 100%; display: block;
+    filter: saturate(.8);
+    transition: filter .4s, transform .5s;
+}
+.sec7-card:hover img { filter: saturate(1); transform: scale(1.03); }
+.sec7-card-body {
+    padding: 20px 22px;
+}
+.sec7-card-text {
+    font-family: var(--font-b);
+    font-size: .82rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(225,226,239,.5);
+}
+
+/* ─────────────────────────────────────────────────────
+   KEYFRAMES
+───────────────────────────────────────────────────── */
+@keyframes slideRight {
+    from { opacity:0; transform:translateX(-24px); }
+    to   { opacity:1; transform:translateX(0); }
+}
+@keyframes fadeInScale {
+    from { opacity:0; transform:scale(.97); }
+    to   { opacity:1; transform:scale(1); }
+}
+
+/* ─────────────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .sec1-grid,
+    .sec3-grid,
+    .sec4-grid,
+    .sec5-grid,
+    .sec7-grid  { grid-template-columns: 1fr !important; padding: 48px 24px; gap: 32px; }
+    .sec2-bar,
+    .sec6-cta-primary,
+    .sec6-cta-secondary { padding: 24px; }
+    .sec5-spacer { display: none; }
+}
+</style>
 {% endblock %}
 
 {% block title %}{{ page.title }} | My Shop{% endblock %}
 
 {% block content %}
 
-<!-- Section 1: Hero / Intro Grid (row-8 = 3 columns on desktop) -->
-<div class="row-8 content-grid bg-x6">
-    <div class="grid-item-1">
-        <h2>{{ page.content1|default:"" }}</h2>
-        <p class="para-2">{{ page.content2|default:"" }}</p>
-        <p class="para-2">{{ page.content3|default:"" }}</p>
+<!-- ═══════════════════════════════════════════════════
+     SECTION 1 — Hero / Intro  (row-8 = 3 col)
+═══════════════════════════════════════════════════ -->
+<div class="row-8 content-grid page-section sec1-grid">
+
+    <!-- Col 1: main copy -->
+    <div class="grid-item-1 sec1-copy">
+        <span class="sec1-eyebrow">{{ page.title }}</span>
+        <h2 class="sec1-h2">{{ page.content1|default:"" }}</h2>
+        <p class="sec1-para">{{ page.content2|default:"" }}</p>
+        <p class="sec1-para">{{ page.content3|default:"" }}</p>
     </div>
-    <div class="grid-item-1">
+
+    <!-- Col 2: image -->
+    <div class="grid-item-1 sec1-img-wrap">
         {% if page.image1 %}
-            <img src="{{ page.image1.url }}" alt="{{ page.title }} image 1" class="img-responsive">
+            <img src="{{ page.image1.url }}" alt="{{ page.title }} image 1">
         {% endif %}
     </div>
-    <div class="grid-item-1">
-        <h3 class="heading-3">{{ page.content4|default:"" }}</h3>
-        <ul>
+
+    <!-- Col 3: list -->
+    <div class="grid-item-1 sec1-list-col">
+        <div class="sec1-list-title">{{ page.content4|default:"" }}</div>
+        <ul class="sec1-list">
             <li>{{ page.content5|default:"" }}</li>
             <li>{{ page.content6|default:"" }}</li>
             <li>{{ page.content7|default:"" }}</li>
@@ -34,96 +445,122 @@
             <li>{{ page.content9|default:"" }}</li>
         </ul>
     </div>
+
 </div>
 
-<!-- Section 2: Full-width colored bar -->
-<div class="row-1 content-grid">
-    <div class="grid-item bg-1">
-        <h3 class="heading-6">{{ page.content10|default:"" }}</h3>
+<!-- ═══════════════════════════════════════════════════
+     SECTION 2 — Full-width bar  (row-1)
+═══════════════════════════════════════════════════ -->
+<div class="row-1 content-grid page-section">
+    <div class="grid-item-1 sec2-bar">
+        <p class="sec2-bar-text">{{ page.content10|default:"" }}</p>
     </div>
 </div>
 
-<!-- Section 3: Two-column row (row-2) -->
-<div class="row-2 content-grid">
-    <div class="grid-item-1">
+<!-- ═══════════════════════════════════════════════════
+     SECTION 3 — Image left + List right  (row-2)
+═══════════════════════════════════════════════════ -->
+<div class="row-2 content-grid page-section sec3-grid">
+
+    <div class="grid-item-1 sec3-img">
         {% if page.image2 %}
-            <img class="img-1" src="{{ page.image2.url }}" alt="Section image">
+            <img src="{{ page.image2.url }}" alt="Section image">
         {% endif %}
     </div>
-    <div class="grid-item-1">
-        <h3 class="heading-3">{{ page.content11|default:"" }}</h3>
-        <ul>
-            <li>{{ page.content12|default:"" }}</li>
-            <li>{{ page.content13|default:"" }}</li>
-            <li>{{ page.content14|default:"" }}</li>
-            <li>{{ page.content15|default:"" }}</li>
-            <li>{{ page.content16|default:"" }}</li>
+
+    <div class="grid-item-1 sec3-list-col">
+        <h3 class="sec3-title">{{ page.content11|default:"" }}</h3>
+        <ul class="styled-list">
+            <li><span class="li-num">01</span>{{ page.content12|default:"" }}</li>
+            <li><span class="li-num">02</span>{{ page.content13|default:"" }}</li>
+            <li><span class="li-num">03</span>{{ page.content14|default:"" }}</li>
+            <li><span class="li-num">04</span>{{ page.content15|default:"" }}</li>
+            <li><span class="li-num">05</span>{{ page.content16|default:"" }}</li>
         </ul>
     </div>
+
 </div>
 
-<!-- Section 4: Two-column again (different content) -->
-<div class="row-2 content-grid">
-    <div class="grid-item-1">
-        <h3 class="heading-3">{{ page.content17|default:"" }}</h3>
-        <ul>
-            <li>{{ page.content18|default:"" }}</li>
-            <li>{{ page.content19|default:"" }}</li>
-            <li>{{ page.content20|default:"" }}</li>
-            <li>{{ page.content21|default:"" }}</li>
-            <li>{{ page.content22|default:"" }}</li>
+<!-- ═══════════════════════════════════════════════════
+     SECTION 4 — List left + Image right  (row-2)
+═══════════════════════════════════════════════════ -->
+<div class="row-2 content-grid page-section sec4-grid">
+
+    <div class="grid-item-1 sec3-list-col">
+        <h3 class="sec3-title">{{ page.content17|default:"" }}</h3>
+        <ul class="styled-list">
+            <li><span class="li-num">01</span>{{ page.content18|default:"" }}</li>
+            <li><span class="li-num">02</span>{{ page.content19|default:"" }}</li>
+            <li><span class="li-num">03</span>{{ page.content20|default:"" }}</li>
+            <li><span class="li-num">04</span>{{ page.content21|default:"" }}</li>
+            <li><span class="li-num">05</span>{{ page.content22|default:"" }}</li>
         </ul>
     </div>
-    <div class="grid-item-1">
+
+    <div class="grid-item-1 sec3-img">
         {% if page.image4 %}
-            <img src="{{ page.image4.url }}" alt="Image 4" class="img-responsive">
+            <img src="{{ page.image4.url }}" alt="Image 4">
         {% endif %}
     </div>
+
 </div>
 
-<!-- Section 5: Three-column row (row-7 style) -->
-<div class="row-7 content-grid">
-    <div class="grid-item"></div> <!-- empty spacer -->
-    <div class="grid-item bg-x1">
-        <h3 class="heading-7">{{ page.content23|default:"" }}</h3>
-        <p class="text-2">{{ page.content24|default:"" }}</p>
-        <p class="text-2">{{ page.content25|default:"" }}</p>
-        <p class="text-2">{{ page.content26|default:"" }}</p>
-        <p class="text-2">{{ page.content27|default:"" }}</p>
-        <p class="text-2">{{ page.content28|default:"" }}</p>
-        <p class="text-2">{{ page.content29|default:"" }}</p>
-        <p class="text-2">{{ page.content30|default:"" }}</p>
+<!-- ═══════════════════════════════════════════════════
+     SECTION 5 — Centered card + image  (row-7)
+═══════════════════════════════════════════════════ -->
+<div class="row-7 content-grid page-section sec5-grid">
+
+    <div class="grid-item sec5-spacer"></div>
+
+    <div class="grid-item-1 sec5-content">
+        <h3 class="sec5-heading">{{ page.content23|default:"" }}</h3>
+        {% if page.content24 %}<p class="sec5-para">{{ page.content24 }}</p>{% endif %}
+        {% if page.content25 %}<p class="sec5-para">{{ page.content25 }}</p>{% endif %}
+        {% if page.content26 %}<p class="sec5-para">{{ page.content26 }}</p>{% endif %}
+        {% if page.content27 %}<p class="sec5-para">{{ page.content27 }}</p>{% endif %}
+        {% if page.content28 %}<p class="sec5-para">{{ page.content28 }}</p>{% endif %}
+        {% if page.content29 %}<p class="sec5-para">{{ page.content29 }}</p>{% endif %}
+        {% if page.content30 %}<p class="sec5-para">{{ page.content30 }}</p>{% endif %}
     </div>
-    <div class="grid-item">
+
+    <div class="grid-item sec5-img-col">
         {% if page.image3 %}
-            <img src="{{ page.image3.url }}" alt="Image 3" class="img-responsive">
+            <img src="{{ page.image3.url }}" alt="Image 3">
         {% endif %}
     </div>
-    <div class="grid-item"></div> <!-- empty spacer -->
+
+    <div class="grid-item sec5-spacer"></div>
+
 </div>
 
-<!-- Section 6: Call to action bars -->
-<div class="row-1 content-grid">
-    <div class="grid-item bg-x3">
-        <h3 class="heading-6">{{ page.content31|default:"" }}</h3>
+<!-- ═══════════════════════════════════════════════════
+     SECTION 6 — CTA bars  (row-1 × 2)
+═══════════════════════════════════════════════════ -->
+<div class="row-1 content-grid page-section">
+    <div class="grid-item-1 sec6-cta-primary">
+        <p class="sec6-cta-text">{{ page.content31|default:"" }}</p>
     </div>
 </div>
-<div class="row-1 content-grid">
-    <div class="grid-item">
-        <h3 class="text-3">{{ page.content32|default:"" }}</h3>
+<div class="row-1 content-grid page-section">
+    <div class="grid-item-1 sec6-cta-secondary">
+        <p class="sec6-cta-sub">{{ page.content32|default:"" }}</p>
     </div>
 </div>
 
-<!-- Optional: Dynamic sections from page.sections (if you still want them) -->
+<!-- ═══════════════════════════════════════════════════
+     SECTION 7 — Dynamic sections  (row-3)
+═══════════════════════════════════════════════════ -->
 {% if page.sections.all %}
-<div class="row-3 content-grid">
+<div class="row-3 content-grid page-section sec7-grid">
     {% for section in page.sections.all %}
-        <div class="grid-item-1">
-            {% if section.image %}
-                <img src="{{ section.image.url }}" alt="Section image" class="img-responsive">
-            {% endif %}
-            <p>{{ section.content }}</p>
+    <div class="grid-item-1 sec7-card">
+        {% if section.image %}
+            <img src="{{ section.image.url }}" alt="Section image">
+        {% endif %}
+        <div class="sec7-card-body">
+            <p class="sec7-card-text">{{ section.content }}</p>
         </div>
+    </div>
     {% endfor %}
 </div>
 {% endif %}
