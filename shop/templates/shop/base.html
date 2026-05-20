@@ -733,153 +733,30 @@
 </head>
 <body>
 
-<!-- ═══ PROMO STRIP — row-1 ═══ -->
-<div class="content-grid row-1 promo-strip bg-black">
-  <div class="grid-item-1">
-    <span class="promo-text">Free shipping on orders over <span class="promo-highlight">$75</span></span>
-    <span class="promo-dot"></span>
-    <span class="promo-text"><span class="promo-highlight">Summer Edit</span> — up to 40% off</span>
-    <span class="promo-dot"></span>
-    <span class="promo-text">New arrivals every <span class="promo-highlight">Friday</span></span>
-  </div>
-</div>
-
 <!-- ═══ HERO HEADER — row-2 ═══ -->
- 
-<div class="content-grid row-2 hero-header bg-black">
-
-  <!-- Left: copy -->
-  <div class="grid-item-1 hero-left">
-
-    <span class="season-tag">Summer Collection 2026</span>
-
+<div class="content-grid row-2 footer-newsletter bg-black">
+  <div class="grid-item-1 nl-copy">
     <h1 class="hero-heading">
-      Dressed for<br>
-      <em>every moment</em><br>
-      you live.
-    </h1>
+      Shopping<br>
+      <em>Made Simple</em>
+  </h1>
+  <p class="hero-desc">
+    Quality products, seamless experience — explore our curated store built on Django, 
+    designed for every lifestyle and every budget.
+</p>
 
-    <p class="hero-desc">
-      Curated pieces that move with you — from golden-hour mornings to candlelit evenings. Effortless style, lasting quality.
-    </p>
-
-    <div class="pill-row">
-      <span class="pill active">Women</span>
-      <span class="pill">Men</span>
-      <span class="pill">Accessories</span>
-      <span class="pill">New In</span>
-    </div>
-
-    <div class="hero-actions">
-      <a href="#" class="btn btn-primary">Shop Collection</a>
-      <a href="#" class="btn btn-outline">View Lookbook</a>
-    </div>
-
-    <div class="stat-strip">
-      <div class="s-item">
-        <span class="s-num">4.2k</span>
-        <span class="s-label">Products</span>
-      </div>
-      <div class="s-item">
-        <span class="s-num">98%</span>
-        <span class="s-label">Reviewed</span>
-      </div>
-      <div class="s-item">
-        <span class="s-num">72h</span>
-        <span class="s-label">Delivery</span>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Right: product tile grid -->
-  <div class="grid-item-1 hero-right">
-
-    <!-- Cell 1 -->
-    <div class="product-cell">
-      <img src="{% static 'shop/images/shirts.jpg' %}" alt="Linen Dress">
-      <div class="wish-btn">
-        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      </div>
-      <span class="badge badge-new">New</span>
-      <div class="product-label">
-        <div class="p-name">Linen Slip Dress</div>
-        <div class="p-price">from $89</div>
-      </div>
-    </div>
-
-    <!-- Cell 2    -->
-    <div class="product-cell">
-        <img src="{% static 'shop/images/wallet-sunglasses.jpg' %}"  alt="Minimal Set">
-      <div class="wish-btn">
-        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      </div>
-      <span class="badge badge-sale">−30%</span>
-      <div class="product-label">
-        <div class="p-name">Minimal Co-ord</div>
-        <div class="p-price">$124 <s style="opacity:.4;font-size:.6rem">$178</s></div>
-      </div>
-    </div>
-
-    <!-- Cell 3 — wide -->
-    <div class="product-cell wide">
-      <img src="{% static 'shop/images/perfume.jpg' %}" alt="Summer Edit" style="height:100%;object-position:center 30%">
-      <div class="wish-btn">
-        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      </div>
-      <div class="product-label">
-        <div class="p-name">Summer Edit — Full Collection</div>
-        <div class="p-price">100+ styles from $45</div>
-      </div>
-    </div>
-
-  </div>
-
+<div class="pill-row">
+    <a href="{% url 'product_list' %}" class="pill active">All</a>
+    {% for cat in categories %}
+        <a href="{% url 'product_list_by_category' cat.slug %}" class="pill">{{ cat.name }}</a>
+    {% endfor %}
 </div>
-
-<!-- ═══ FEATURES STRIP — row-4 ═══ -->
-<div class="content-grid row-4 features-strip">
-
-  <div class="grid-item-1 feature-item">
-    <div class="feat-icon">
-      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </div>
-    <div class="feat-copy">
-      <div class="feat-title">Free Shipping</div>
-      <div class="feat-sub">On orders over $75</div>
-    </div>
   </div>
-
-  <div class="grid-item-1 feature-item">
-    <div class="feat-icon">
-      <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.93"/></svg>
-    </div>
-    <div class="feat-copy">
-      <div class="feat-title">Easy Returns</div>
-      <div class="feat-sub">30-day hassle-free policy</div>
-    </div>
+  <div class="grid-item-1" style="display:flex;align-items:center;">
+      <div style="width:100%">
+          <div class="slide"><img src="{% static 'shop/images/perfume.jpg' %}" alt="Slide 3 - Trending products"></div>
+      </div>
   </div>
-
-  <div class="grid-item-1 feature-item">
-    <div class="feat-icon">
-      <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-    </div>
-    <div class="feat-copy">
-      <div class="feat-title">Secure Payment</div>
-      <div class="feat-sub">256-bit SSL encrypted</div>
-    </div>
-  </div>
-
-  <div class="grid-item-1 feature-item">
-    <div class="feat-icon">
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    </div>
-    <div class="feat-copy">
-      <div class="feat-title">24/7 Support</div>
-      <div class="feat-sub">Chat & email anytime</div>
-    </div>
-  </div>
-
 </div>
 <!-- ========== MAIN CONTENT BLOCK ========== -->
 <main class="main-content">
@@ -893,22 +770,7 @@
 <footer>
 
     <!-- ── Newsletter Strip (row-2) ── -->
-    <div class="content-grid row-2 footer-newsletter">
-        <div class="grid-item-1 nl-copy">
-            <span class="nl-tag">Stay in the loop</span>
-            <h2 class="nl-heading">
-                Get the <em>best deals</em><br>delivered to you.
-            </h2>
-            <p class="nl-sub">
-                Subscribe for weekly drops, exclusive offers, and new arrival alerts — no spam, ever.
-            </p>
-        </div>
-        <div class="grid-item-1" style="display:flex;align-items:center;">
-            <div style="width:100%">
-                <div class="slide"><img src="{% static 'shop/images/slide3.png' %}" alt="Slide 3 - Trending products"></div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- ── Main Footer Body (row-3) ── -->
     <div class="content-grid row-3 footer-main">
