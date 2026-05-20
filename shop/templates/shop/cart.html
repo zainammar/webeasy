@@ -4,6 +4,7 @@
 
 {% block content %}
 {% load humanize %}
+<div class="bg-black">
 <h1>Shopping Cart</h1>
 <br>
 <button>
@@ -40,5 +41,6 @@
 {% else %}
 <p>Your cart is empty.</p>
 <a href="{% url 'product_list' %}">Shop Now</a>
+</div>
 {% endif %}
 {% endblock %}
