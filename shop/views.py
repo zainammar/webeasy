@@ -2,6 +2,28 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Product, Order, OrderItem, Category # <-- Make sure Category is imported!
 
+from django.shortcuts import render, redirect
+from .forms import PaymentProofForm
+
+def upload_payment_proof(request):
+    if request.method == "POST":
+        form = PaymentProofForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+
+            # 🔥 THIS IS WHERE REDIRECT GOES
+            return redirect('shop:success_page')
+
+    else:
+        form = PaymentProofForm()
+
+    return render(request, "shop/uploadpaymentproff.html", {'form': form})
+
+
+def success_page(request):
+    return render(request, "shop/success.html")
 # Product list
 def product_list(request, category_slug=None): # <-- Added category_slug for filtering
     category = None

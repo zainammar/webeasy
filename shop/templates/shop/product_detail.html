@@ -14,7 +14,7 @@
     </div>
 
     <div class="grid-item-1">
-        <form action="{% url 'add_to_cart' product.slug %}" method="post">
+        <form action="{% url 'shop:add_to_cart' product.slug %}" method="post">
             {% csrf_token %}
             <label>Quantity:</label>
             <input type="number" name="quantity" value="1" min="1">

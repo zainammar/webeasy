@@ -8,10 +8,13 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('shop/', include('shop.urls')),
     path('', include('themeOne.urls')),
+    
+    
 ]
 
 
 # Serve media files during development
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

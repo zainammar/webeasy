@@ -30,10 +30,10 @@ a{
     <div class="category-link">
    <h2> Categories: </h2>
         <li class="btn-a category-link">
-      <a href="{% url 'product_list' %}">All</a> {# Link to show all products #}
+      <a href="{% url 'shop:product_list' %}">All</a> {# Link to show all products #}
       {% for cat in categories %}     </li>
       <li class="btn-a  category">
-        <a href="{% url 'product_list_by_category' cat.slug %}">{{ cat.name }}</a>     
+        <a href="{% url 'shop:product_list_by_category' cat.slug %}">{{ cat.name }}</a>     
       </li>
       {% endfor %}
     </ul>
@@ -47,7 +47,7 @@ a{
     <ul>
         {% for product in products %}
         <li class="btn-a  category">
-                <a href="{% url 'product_detail' product.slug %}">{{ product.name }}</a>
+                <a href="{% url 'shop:product_detail' product.slug %}">{{ product.name }}</a>
               
             </li>
             <h1>{{ product.name }}</h1>
@@ -55,7 +55,7 @@ a{
 
             <p class="bg-x67"> <b> Product Description: </b> <br> {{ product.description }} </p>
             <p class="bg-x67"> Price: ${{ product.price }}</p>
-            <button>  <a href="{% url 'product_detail' product.slug %}">Read More</a> </button>
+            <button>  <a href="{% url 'shop:product_detail' product.slug %}">Read More</a> </button>
          
  
  

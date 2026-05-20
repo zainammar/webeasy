@@ -309,10 +309,13 @@
     <a href="{% url 'page_detail' slug='about-us' %}" class="{% if slug == 'about-us' %}active{% endif %}">About Us</a>
     <a href="{% url 'page_detail' slug='contact-us' %}" class="{% if slug == 'contact-us' %}active{% endif %}">Contact Us</a>
     <a href="/shop/">Shop</a>
-    <a href="{% url 'cart_detail' %}" class="{% if request.resolver_match.url_name == 'cart_detail' %}active{% endif %}">
+    <a href="{% url 'shop:cart_detail' %}" class="{% if request.resolver_match.url_name == 'cart_detail' %}active{% endif %}">
         <i class="fa fa-shopping-cart"></i> Cart
     </a>
-
+    
+    <a href="{% url 'shop:upload_payment_proof' %}">
+      Upload Payment Proof
+  </a>
     {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">Logout</a>
     {% else %}
@@ -326,9 +329,9 @@
             Categories <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a href="{% url 'product_list' %}">All Products</a>
+            <a href="{% url 'shop:product_list' %}">All Products</a>
             {% for cat in categories %}
-                <a href="{% url 'product_list_by_category' cat.slug %}">{{ cat.name }}</a>
+                <a href="{% url 'shop:product_list_by_category' cat.slug %}">{{ cat.name }}</a>
             {% endfor %}
         </div>
     </div>
@@ -746,9 +749,9 @@
 </p>
 
 <div class="pill-row">
-    <a href="{% url 'product_list' %}" class="pill active">All</a>
+    <a href="{% url 'shop:product_list' %}" class="pill active">All</a>
     {% for cat in categories %}
-        <a href="{% url 'product_list_by_category' cat.slug %}" class="pill">{{ cat.name }}</a>
+        <a href="{% url 'shop:product_list_by_category' cat.slug %}" class="pill">{{ cat.name }}</a>
     {% endfor %}
 </div>
   </div>
@@ -798,8 +801,8 @@
             <ul class="footer-link-list">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="/shop/">Shop</a></li>
-                <li><a href="{% url 'product_list' %}">All Products</a></li>
-                <li><a href="{% url 'cart_detail' %}">My Cart</a></li>
+                <li><a href="{% url 'shop:product_list' %}">All Products</a></li>
+                <li><a href="{% url 'shop:cart_detail' %}">My Cart</a></li>
                 <li><a href="{% url 'page_detail' slug='about-us' %}">About Us</a></li>
                 <li><a href="{% url 'page_detail' slug='contact-us' %}">Contact Us</a></li>
             </ul>
