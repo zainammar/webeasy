@@ -198,7 +198,7 @@
             font-family: var(--font-b);
             font-size: .8rem;
             font-weight: 300;
-            color: rgba(191,172,170,.55);
+            color: rgba(255, 255, 255, 0.55);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -242,7 +242,7 @@
             font-size: .62rem;
             letter-spacing: .18em;
             text-transform: uppercase;
-            color: rgba(191,172,170,.4);
+            color: rgba(255, 252, 252, 0.4);
         }
         .contact-text-val {
             font-family: var(--font-b);
@@ -864,7 +864,18 @@
     </div>
 
 </footer>
+<script>
+  function toggleNav() {
+      var nav = document.getElementById("myTopnav");
+  
+      if (nav.className === "topnav") {
+          nav.className += " responsive";
+      } else {
+          nav.className = "topnav";
+      }
+  }
+  </script>
 
-{% block extra_js %}{% endblock %}
 </body>
 </html>
+{% block extra_js %}{% endblock %}
