@@ -61,7 +61,7 @@ def add_to_cart(request, slug):
     cart[str(product.id)] = cart.get(str(product.id), 0) + quantity
     request.session['cart'] = cart
 
-    return redirect('cart_detail')
+    return redirect('shop:cart_detail')
 
 # View cart
 @login_required(login_url='login')
@@ -93,7 +93,7 @@ def cart_detail(request):
 def checkout(request):
     cart = request.session.get('cart', {}) # <-- Ensure this is `{}`
     if not cart:
-        return redirect('cart_detail')
+        return redirect('shop:cart_detail')
 
     total = 0
     order = Order.objects.create(
@@ -119,14 +119,13 @@ def checkout(request):
     # Clear session cart
     request.session['cart'] = {}
 
-    return redirect('product_list')
-
-# Checkout (second instance of checkout, assuming this is the one you intend to use)
+    return redirect('shop:product_list')
 @login_required(login_url='login')
 def checkout(request):
-    cart = request.session.get('cart', {}) # <-- Ensure this is `{}`
+    cart = request.session.get('cart', {})
+
     if not cart:
-        return redirect('cart_detail')
+        return redirect('shop:cart_detail')
 
     cart_items = []
     total = 0
@@ -142,7 +141,7 @@ def checkout(request):
             'item_total': item_total
         })
 
-    # When user confirms order
+    # POST = place order
     if request.method == 'POST':
         order = Order.objects.create(
             user=request.user,
@@ -157,14 +156,14 @@ def checkout(request):
                 price=item['product'].price
             )
 
-        # Clear session cart
         request.session['cart'] = {}
 
-        return redirect('product_list')
-    
-    categories = Category.objects.all() # <-- Pass categories to checkout
+        return redirect('shop:product_list')
+
+    categories = Category.objects.all()
+
     return render(request, 'shop/checkout.html', {
         'cart_items': cart_items,
         'total': total,
-        'categories': categories # <-- Pass categories
+        'categories': categories
     })

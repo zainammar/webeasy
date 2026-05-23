@@ -26,7 +26,7 @@
         <td>{{ item.quantity }}</td>
         <td>PKR {{ item.item_total|intcomma }}</td>
         <td>
-            <form method="POST" action="{% url 'add_to_cart' item.product.slug %}" style="display:inline;">
+            <form method="POST" action="{% url 'shop:add_to_cart' item.product.slug %}" style="display:inline;">
                 {% csrf_token %}
                 <input type="hidden" name="quantity" value="1">
                 <button type="submit">+</button>

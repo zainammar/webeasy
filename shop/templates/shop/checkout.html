@@ -1,62 +1,45 @@
 {% extends "shop/base.html" %}
+{% load humanize %}
 
 {% block title %}Checkout{% endblock %}
 
 {% block content %}
-{% load humanize %}
 
+<div class="content-grid bg-black text-white">
 
-<div class="row-2 content-grid bg-black text-white">
+    <h1>Checkout</h1>
 
-    <div class="grid-item-1">
-        <h1>Checkout</h1>
+    {% if cart_items %}
 
-        {% if cart_items %}
-        <form method="POST" action="{% url 'shop:checkout' %}">
-            {% csrf_token %}
-        
-            <table border="1" cellpadding="10">
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
-        
-                {% for item in cart_items %}
-                <tr>
-                    <td>{{ item.product.name }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>PKR {{ item.item_total|intcomma }}</td>
-                </tr>
-                {% endfor %}
-            </table>
+    <form method="POST" action="{% url 'shop:checkout' %}">
+        {% csrf_token %}
 
-<div class="grid-item-1">
-    <p><strong>Total: PKR {{ total }}</strong></p>  
-    
-    <button type="submit">Place Order</button>
+        <table border="1" cellpadding="10">
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
 
-{% else %}
-<p>Your cart is empty.</p>
-<button>
-<a href="{% url 'shop:product_list' %}">Shop Now</a>
-</button>
-{% endif %} 
-</div>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>PKR {{ item.item_total|intcomma }}</td>
+            </tr>
+            {% endfor %}
+        </table>
 
+        <p><strong>Total: PKR {{ total }}</strong></p>
 
+        <button type="submit">Place Order</button>
+    </form>
 
+    {% else %}
+        <p>Your cart is empty.</p>
+        <a href="{% url 'shop:product_list' %}">Shop Now</a>
+    {% endif %}
 
 </div>
-
-
-
- 
-<!-- 
-    <h3>Shipping Info</h3>
-    <label>Phone:</label><br>
-    <input type="text" name="phone" required><br>
-    <label>Address:</label><br>
-    <textarea name="address" required></textarea><br><br> -->
 
 {% endblock %}
