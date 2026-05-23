@@ -1,46 +1,68 @@
 {% extends "shop/base.html" %}
 {% load static %}
+{% load humanize %}
+
 {% block title %}Shopping Cart{% endblock %}
 
 {% block content %}
-{% load humanize %}
-<div class="bg-black">
-<h1>Shopping Cart</h1>
-<br>
-<button>
-    <a href="{% url 'shop:product_list' %}">Back to Products</a>
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+<div class="cart-container">
 
-</button>
-<br><br>
-{% if cart_items %}
-<table border="1" cellpadding="10">
-    <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Total</th>
-        <th>Actions</th>
-    </tr>
-    {% for item in cart_items %}
-    <tr>
-        <td>{{ item.product.name }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>PKR {{ item.item_total|intcomma }}</td>
-        <td>
-            <form method="POST" action="{% url 'shop:add_to_cart' item.product.slug %}" style="display:inline;">
+    <h1 class="cart-title">Shopping Cart</h1>
+
+    <a class="back-btn" href="{% url 'shop:product_list' %}">
+        ← Back to Products
+    </a>
+
+    {% if cart_items %}
+
+    <div class="cart-grid">
+
+        <!-- Header -->
+        <div class="cart-header">Product</div>
+        <div class="cart-header">Quantity</div>
+        <div class="cart-header">Total</div>
+        <div class="cart-header">Action</div>
+
+        <!-- Items -->
+        {% for item in cart_items %}
+
+        <div class="cart-cell product">
+            {{ item.product.name }}
+        </div>
+
+        <div class="cart-cell">
+            {{ item.quantity }}
+        </div>
+
+        <div class="cart-cell price">
+            PKR {{ item.item_total|intcomma }}
+        </div>
+
+        <div class="cart-cell">
+            <form method="POST" action="{% url 'shop:add_to_cart' item.product.slug %}">
                 {% csrf_token %}
                 <input type="hidden" name="quantity" value="1">
-                <button type="submit">+</button>
+                <button class="add-btn" type="submit">+</button>
             </form>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+        </div>
 
-<p><strong>Total: PKR{{ total }}</strong></p>
-<a href="{% url 'shop:checkout' %}"><button>Proceed to Checkout</button></a>
-{% else %}
-<p>Your cart is empty.</p>
-<a href="{% url 'shop:product_list' %}">Shop Now</a>
+        {% endfor %}
+    </div>
+
+    <div class="cart-footer">
+        <p>Total: <span>PKR {{ total|intcomma }}</span></p>
+
+        <a class="checkout-btn" href="{% url 'shop:checkout' %}">
+            Proceed to Checkout
+        </a>
+    </div>
+
+    {% else %}
+        <p class="empty">Your cart is empty.</p>
+        <a class="shop-btn" href="{% url 'shop:product_list' %}">Shop Now</a>
+    {% endif %}
+
 </div>
-{% endif %}
+
 {% endblock %}

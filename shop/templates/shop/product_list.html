@@ -6,62 +6,50 @@
 {% block content %}
 <style>
 
-  li{
-    list-style-type: none;
-    margin: 5px 0;
-    padding: 10px;
-    background-color:  #C97D60;
-    border-radius: 5px;
-    text-decoration: none;
-    width: 300px;
-    text-decoration: none !important;
-    color:rgb(0, 0, 0);
-  }
-a{
-  text-decoration: none !important;
-  color: #000000;
-
-}
 </style>
 <!-- Main Shop Page -->
-<div class="row-3 content-grid bg-black text-white">
+<div class="row-2 content-grid  bg-black ">
 
-  <div class="grid-item-1">
+  <div class="grid-item-1 text-white">
     <div class="category-link">
    <h2> Categories: </h2>
-        <li class="btn-a category-link">
-      <a href="{% url 'shop:product_list' %}">All</a> {# Link to show all products #}
-      {% for cat in categories %}     </li>
-      <li class="btn-a  category">
-        <a href="{% url 'shop:product_list_by_category' cat.slug %}">{{ cat.name }}</a>     
-      </li>
+   <br>
+   <button>
+    <a href="{% url 'shop:product_list' %}">All {# Link to show all products #}
+      {% for cat in categories %}    
+    </a>   
+   </button>
+   <button>
+    <a href="{% url 'shop:product_list_by_category' cat.slug %}">{{ cat.name }}</a>   
+   </button>
+ 
+         
+    
       {% endfor %}
-    </ul>
+   
     </div>
      
 
   </div>
 
-  <div class="grid-item-1 bg-x68">
+  <div class="grid-item-1  bg-blue text-white">
     <h2>Products </h2>
     <ul>
         {% for product in products %}
-        <li class="btn-a  category">
+    
                 <a href="{% url 'shop:product_detail' product.slug %}">{{ product.name }}</a>
-              
-            </li>
-            <h1>{{ product.name }}</h1>
+            </h1>
             <img src="{{ product.image.url }}" width="200">
 
-            <p class="bg-x67"> <b> Product Description: </b> <br> {{ product.description }} </p>
-            <p class="bg-x67"> Price: ${{ product.price }}</p>
+            <p class="text-1"> <b> Product Description: </b> <br> {{ product.description }} </p>
+            <p class="text-1"> Price:PKR {{ product.price }}</p>
             <button>  <a href="{% url 'shop:product_detail' product.slug %}">Read More</a> </button>
          
  
  
 
   </div>
-  <div class="grid-item-1  bg-x68">
+
       
 
            
@@ -69,11 +57,4 @@ a{
   
     {% endblock %}
 
-  </div>
-
-
-</div>
-
-       
- <br>
 
