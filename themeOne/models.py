@@ -1,5 +1,16 @@
 from django.db import models
 
+class Footer(models.Model):
+    about_text = models.TextField(blank=True, null=True)
+    address = models.CharField(max_length=255, blank=True, null=True)
+    phone = models.CharField(max_length=50, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+
+    facebook = models.URLField(blank=True, null=True)
+    instagram = models.URLField(blank=True, null=True)
+    twitter = models.URLField(blank=True, null=True)
+
+    copyright_text = models.CharField(max_length=255, blank=True, null=True)
 
 class NavbarItem(models.Model):
     title = models.CharField(max_length=100)
@@ -92,6 +103,8 @@ class Page(models.Model):
 
     def __str__(self):
         return self.title
+    
+
     
 
     

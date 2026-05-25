@@ -13,7 +13,12 @@
         <p class="text-2">{{ product.description }}</p>
       
     </div>
+    <div class="grid-item-1">
 
+    </div>
+</div>
+<div class="row-2 content-grid  bg-black text-white">
+    
     <div class="grid-item-1">
         <p class="text-2">Price: PKR{{ product.price }}</p>
         <form action="{% url 'shop:add_to_cart' product.slug %}" method="post">
@@ -23,8 +28,11 @@
             <button  type="submit">Add to Cart</button>
         </form>
     </div>
+    <div class="grid-item-1">
 
+    </div>
 </div>
+   
   
 
 

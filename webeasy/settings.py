@@ -84,6 +84,8 @@ TEMPLATES = [
 
                 'themeOne.context_processors.navbar_links',
 
+                'themeOne.context_processors.footer_data',
+
             ],
         },
     },

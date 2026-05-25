@@ -6,3 +6,12 @@ def navbar_links(request):
     return {
         'navbar_items': navbar_items
     }
+
+from .models import Footer
+
+def footer_data(request):
+    footer = Footer.objects.first()
+
+    return {
+        'footer': footer
+    }
