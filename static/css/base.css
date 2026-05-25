@@ -89,7 +89,7 @@
   
   .topnav a.active {
     background-color: #34113F;
-    border-bottom: 3px solid #C97D60;
+    border-bottom: 3px solid #BFACAA;;
   }
   
   .dropdown {
@@ -128,7 +128,7 @@
   }
   
   .dropdown-content a:hover {
-    background-color: #C97D60;
+    background-color: #BFACAA;;
     color: white;
   }
   
@@ -195,8 +195,11 @@
     display: grid;
     gap: 1.5rem;
     padding: 1.5rem;
+    
   }
-  
+  .main-content{
+    background-color: #02020A;
+  }
   .row-8.content-grid {
     grid-template-columns: 1fr;
   }

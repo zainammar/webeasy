@@ -67,19 +67,19 @@ body{
 .sec1-eyebrow::before { content:''; width:28px; height:1px; background:var(--orchid); }
 .sec1-h2 {
     font-family: var(--font-d);
-    font-size: clamp(2rem, 3.5vw, 3.4rem);
-    font-weight: 400;
+    font-size: larger;
+    font-weight: 200;
     line-height: 1.1;
-    color: var(--mist);
+    color:#ffffff;
     animation: slideRight .7s .34s both;
 }
 .sec1-h2 em { font-style: italic; color: var(--clay); }
 .sec1-para {
     font-family: var(--font-b);
-    font-size: .88rem;
+    font-size:2rem;
     font-weight: 300;
     line-height: 1.85;
-    color: rgba(225,226,239,.48);
+    color:#ffffff;
     animation: slideRight .7s .48s both;
 }
 
@@ -110,9 +110,9 @@ body{
 .sec1-list-col { display: flex; flex-direction: column; gap: 16px; animation: slideRight .7s .56s both; }
 .sec1-list-title {
     font-family: var(--font-d);
-    font-size: 1.25rem;
+    font-size: 3rem;
     font-style: italic;
-    color: var(--clay);
+    color:#ffffff;
     padding-bottom: 12px;
     border-bottom: 1px solid rgba(191,172,170,.12);
 }
@@ -124,7 +124,7 @@ body{
     font-family: var(--font-b);
     font-size: .82rem;
     font-weight: 300;
-    color: rgba(225,226,239,.55);
+    color:#ffffff;
     line-height: 1.6;
     display: flex; align-items: flex-start; gap: 10px;
     padding-bottom: 10px;
@@ -163,7 +163,7 @@ body{
     font-size: clamp(1.1rem, 2vw, 1.6rem);
     font-weight: 400;
     font-style: italic;
-    color: var(--mist);
+    color:#ffffff;
     text-align: center;
     letter-spacing: .02em;
 }
@@ -201,7 +201,7 @@ body{
     font-family: var(--font-d);
     font-size: clamp(1.4rem, 2.5vw, 2.2rem);
     font-weight: 400;
-    color: var(--mist);
+    color:#ffffff;
     line-height: 1.2;
     padding-bottom: 16px;
     border-bottom: 1px solid rgba(191,172,170,.1);
@@ -215,7 +215,7 @@ body{
     font-family: var(--font-b);
     font-size: .84rem;
     font-weight: 300;
-    color: rgba(225,226,239,.55);
+    color:#ffffff;
     line-height: 1.65;
     display: flex; align-items: flex-start; gap: 14px;
     padding: 12px 0;
@@ -253,6 +253,7 @@ body{
     padding: 80px 64px;
     gap: 40px;
     position: relative;
+
 }
 .sec5-content {
     background: rgba(5,32,74,.35);
@@ -264,6 +265,7 @@ body{
     gap: 16px;
     position: relative;
     overflow: hidden;
+    color:#ffffff;
 }
 .sec5-content::before {
     content: '';
@@ -275,7 +277,7 @@ body{
     font-size: 1.5rem;
     font-weight: 400;
     font-style: italic;
-    color: var(--mist);
+    color:#ffffff;
     padding-bottom: 14px;
     border-bottom: 1px solid rgba(191,172,170,.1);
 }
@@ -284,12 +286,12 @@ body{
     font-size: .82rem;
     font-weight: 300;
     line-height: 1.8;
-    color: rgba(225,226,239,.5);
+    color:#ffffff;
     display: flex; align-items: flex-start; gap: 10px;
 }
 .sec5-para::before {
     content: '—';
-    color: var(--orchid);
+    color:#ffffff;
     flex-shrink: 0;
     font-style: normal;
 }
@@ -330,9 +332,10 @@ body{
     font-size: clamp(1rem, 2vw, 1.45rem);
     font-weight: 400;
     font-style: italic;
-    color: var(--mist);
+    color:#ffffff;
     letter-spacing: .02em;
     position: relative; z-index: 1;
+    
 }
 
 .sec6-cta-secondary {
@@ -383,7 +386,7 @@ body{
     font-size: .82rem;
     font-weight: 300;
     line-height: 1.75;
-    color: rgba(225,226,239,.5);
+    color:#ffffff;
 }
 
 /* ─────────────────────────────────────────────────────
