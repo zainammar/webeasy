@@ -305,41 +305,28 @@
 
 <!-- ========== RESPONSIVE NAVIGATION BAR ========== -->
 <div class="topnav" id="myTopnav">
-    <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
-    <a href="{% url 'page_detail' slug='about-us' %}" class="{% if slug == 'about-us' %}active{% endif %}">About Us</a>
-    <a href="{% url 'page_detail' slug='contact-us' %}" class="{% if slug == 'contact-us' %}active{% endif %}">Contact Us</a>
-    <a href="/shop/">Shop</a>
-    <a href="{% url 'shop:cart_detail' %}" class="{% if request.resolver_match.url_name == 'cart_detail' %}active{% endif %}">
-        <i class="fa fa-shopping-cart"></i> Cart
-    </a>
-    
-    <a href="{% url 'shop:upload_payment_proof' %}">
-      Upload Payment Proof
+
+  {% for item in navbar_items %}
+      <a href="{{ item.url }}">
+          {{ item.title }}
+      </a>
+  {% endfor %}
+
+  <a href="{% url 'shop:cart_detail' %}">
+      <i class="fa fa-shopping-cart"></i> Cart
   </a>
-    {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'signup' %}">Signup</a>
-    {% endif %}
 
-    {% if categories %}
-    <div class="dropdown">
-        <button class="dropbtn">
-            Categories <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="{% url 'shop:product_list' %}">All Products</a>
-            {% for cat in categories %}
-                <a href="{% url 'shop:product_list_by_category' cat.slug %}">{{ cat.name }}</a>
-            {% endfor %}
-        </div>
-    </div>
-    {% endif %}
+  {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}">Logout</a>
+  {% else %}
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'signup' %}">Signup</a>
+  {% endif %}
 
-    <a href="javascript:void(0);" class="icon" onclick="toggleNav()" aria-label="Menu">
-        <i class="fa fa-bars"></i>
-    </a>
+  <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+      <i class="fa fa-bars"></i>
+  </a>
+
 </div>
 
 <!-- ========== HERO SECTION (FULLY RESPONSIVE GRID) ========== -->

@@ -66,19 +66,28 @@ ROOT_URLCONF = 'webeasy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [], # Can be left empty if all templates are within app directories
-        'APP_DIRS': True, # MUST be True for Django to find templates in app directories
+
+        'DIRS': [],
+
+        'APP_DIRS': True,
+
         'OPTIONS': {
             'context_processors': [
+
                 'django.template.context_processors.debug',
+
                 'django.template.context_processors.request',
+
                 'django.contrib.auth.context_processors.auth',
+
                 'django.contrib.messages.context_processors.messages',
+
+                'themeOne.context_processors.navbar_links',
+
             ],
         },
     },
 ]
-
 WSGI_APPLICATION = 'webeasy.wsgi.application'
 
 # Database
