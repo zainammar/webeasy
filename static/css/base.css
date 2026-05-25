@@ -14,7 +14,9 @@
     flex-direction: column;
     min-height: 100vh;
   }
-
+  a, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
   font{
     text-decoration: none;
   }

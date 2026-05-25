@@ -726,30 +726,8 @@
 <body>
 
 <!-- ═══ HERO HEADER — row-2 ═══ -->
-<div class="content-grid row-2 footer-newsletter bg-black">
-  <div class="grid-item-1 nl-copy">
-    <h1 class="hero-heading">
-      Shopping<br>
-      <em>Made Simple</em>
-  </h1>
-  <p class="hero-desc">
-    Quality products, seamless experience — explore our curated store built on Django, 
-    designed for every lifestyle and every budget.
-</p>
 
-<div class="pill-row">
-    <a href="{% url 'shop:product_list' %}" class="pill active">All</a>
-    {% for cat in categories %}
-        <a href="{% url 'shop:product_list_by_category' cat.slug %}" class="pill">{{ cat.name }}</a>
-    {% endfor %}
-</div>
-  </div>
-  <div class="grid-item-1" style="display:flex;align-items:center;">
-      <div style="width:100%">
-          <div class="slide"><img src="{% static 'shop/images/perfume.jpg' %}" alt="Slide 3 - Trending products"></div>
-      </div>
-  </div>
-</div>
+
 <!-- ========== MAIN CONTENT BLOCK ========== -->
 <main class="main-content">
     {% block content %}

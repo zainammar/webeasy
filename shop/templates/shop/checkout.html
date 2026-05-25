@@ -4,42 +4,54 @@
 {% block title %}Checkout{% endblock %}
 
 {% block content %}
-
-<div class="content-grid bg-black text-white">
-
-    <h1>Checkout</h1>
+<div class="content-grid row-2 checkout bg-black text-white">
+    <div class="grid-item-1">
+    <h1 class="checkout-title">Checkout</h1>
 
     {% if cart_items %}
 
-    <form method="POST" action="{% url 'shop:checkout' %}">
+    <form method="POST" action="{% url 'shop:checkout' %}" class="checkout-form">
         {% csrf_token %}
 
-        <table border="1" cellpadding="10">
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Total</th>
-            </tr>
+        <!-- GRID HEADER -->
+        <div class="grid-header">
+            <div>Product</div>
+            <div>Quantity</div>
+            <div>Total</div>
+        </div>
 
-            {% for item in cart_items %}
-            <tr>
-                <td>{{ item.product.name }}</td>
-                <td>{{ item.quantity }}</td>
-                <td>PKR {{ item.item_total|intcomma }}</td>
-            </tr>
-            {% endfor %}
-        </table>
+        <!-- GRID ITEMS -->
+        {% for item in cart_items %}
+        <div class="grid-row">
+            <div>{{ item.product.name }}</div>
+            <div>{{ item.quantity }}</div>
+            <div>PKR {{ item.item_total|intcomma }}</div>
+        </div>
+        {% endfor %}
 
-        <p><strong>Total: PKR {{ total }}</strong></p>
+        <!-- TOTAL -->
+        <div class="grid-total">
+            <strong>Total: PKR {{ total }}</strong>
+        </div>
 
-        <button type="submit">Place Order</button>
+        <button type="submit" class="checkout-btn">Place Order</button>
     </form>
 
     {% else %}
         <p>Your cart is empty.</p>
-        <a href="{% url 'shop:product_list' %}">Shop Now</a>
+        <a href="{% url 'shop:product_list' %}" class="shop-link">Shop Now</a>
     {% endif %}
-
+</div>
+    <div class="grid-item-1 nl-copy">
+    <div class="payment-link">
+        <a href="{% url 'shop:upload_payment_proof' %}">
+            <h2 class="text-1">Upload Your Payment Proof</h2>
+        </a>
+        <button>
+            <a href="{% url 'shop:upload_payment_proof' %}">Click Here</a>
+        </button>
+    </div>
+</div>
 </div>
 
 {% endblock %}
