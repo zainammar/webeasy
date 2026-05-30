@@ -86,6 +86,8 @@ TEMPLATES = [
 
                 'themeOne.context_processors.footer_data',
 
+                'themeOne.context_processors.hero_sections',
+
             ],
         },
     },

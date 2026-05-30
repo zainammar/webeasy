@@ -192,6 +192,16 @@
     }
   }
   
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-1);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  
   /* ========== HERO GRID SYSTEM ========== */
   .content-grid {
     display: grid;
@@ -223,6 +233,30 @@
     width: auto;
     object-fit: contain;
   }
+  
+
+  .pill-active{
+  
+      background-color: #B497D6;
+      max-width: 25%;
+      border: none;
+      color: #05204A;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+    
+    
+    .pill-active:hover {
+      background-color: #05204A;
+      color: #B497D6;
+    }
+    
   
   /* ========== SLIDER ========== */
   .slider-container {

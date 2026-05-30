@@ -15,3 +15,10 @@ def footer_data(request):
     return {
         'footer': footer
     }
+
+from .models import HeroSection
+
+def hero_sections(request):
+    return {
+        'hero_sections': HeroSection.objects.filter(active=True)
+    }

@@ -1,5 +1,18 @@
 from django.db import models
 
+class HeroSection(models.Model):
+    heading = models.CharField(max_length=200)
+    sub_heading = models.CharField(max_length=200, blank=True)
+    paragraph = models.TextField()
+    image = models.ImageField(upload_to='hero/')
+    button_text = models.CharField(max_length=100, blank=True)
+    button_link = models.CharField(max_length=200, blank=True)
+
+    active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.heading
+    
 class Footer(models.Model):
     about_text = models.TextField(blank=True, null=True)
     address = models.CharField(max_length=255, blank=True, null=True)
