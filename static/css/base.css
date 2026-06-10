@@ -212,6 +212,15 @@
   .main-content{
     background-color: #02020A;
   }
+
+  .content-grid1 {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: #02020A;
+    
+  }
+
   .row-8.content-grid {
     grid-template-columns: 1fr;
   }
@@ -426,14 +435,15 @@
    .hero-heading {
      font-family: var(--font-d);
      font-size: clamp(2.6rem, 4.5vw, 4.8rem);
-     font-weight: 400;
-     line-height: 1.08;
+     font-weight: 1000;
+     line-height: 0.50;
      color: var(--mist);
      animation: slideRight .75s .38s both;
    }
    .hero-heading em {
      font-style: italic;
      color: var(--clay);
+     font-weight: 500;
    }
   
    .hero-desc {
@@ -700,8 +710,12 @@
     padding: 10px;
     margin: 10px;
   }
- 
- 
+  .bg-purple{
+    background-color: #B497D6;
+  }
+ .footer-col{
+  background-color: #B497D6;
+ }
   ::file-selector-button {
     border: 2px solid black;
     padding: 5px 10px;
@@ -734,7 +748,7 @@
      font-family: var(--font-b);
      font-size: .8rem;
      font-weight: 300;
-     color: rgba(191,172,170,.55);
+     color: rgba(238, 233, 233, 0.55);
      text-decoration: none;
      display: flex;
      align-items: center;
@@ -745,11 +759,11 @@
   .footer-link-list li a::before {
      content: '';
      width: 14px; height: 1px;
-     background: rgba(191,172,170,.2);
+     background: #34113F;;
      transition: width .25s, background .25s;
   }
   .footer-link-list li a:hover {
-     color: var(--mist);
+     color: white;
   }
   .footer-link-list li a:hover::before {
      width: 20px;
