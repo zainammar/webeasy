@@ -1,3 +1,19 @@
+body {
+    background-color: #D4D6CA;
+    font-family: 'Inter', Georgia, 'Times New Roman', Times, serif;
+    color: #1a2a32;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  a, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+  font{
+    text-decoration: none;
+  }
+  
 html, body {
     background: var(--mist);
     font-family: var(--font-b);
@@ -118,7 +134,7 @@ html, body {
 
   .hero-desc {
     font-size: 1.2rem;
-    font-weight: 80;
+    font-weight: 120;
     line-height: 1.20;
     color:white;
     max-width: 100%;
@@ -532,7 +548,7 @@ html, body {
   }
   
   .heading-img {
-    max-height: 150px;
+    max-width: 100%;
     width: auto;
     object-fit: contain;
   }
