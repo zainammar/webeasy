@@ -6,27 +6,22 @@ from django.utils.text import slugify # For automatically generating slugs
 from django.db.models import Index # For defining database indexes
 from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+from django.contrib.auth.models import User
+from django.utils.text import slugify
+from django.db.models import Index
 
 class PaymentProof(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    
-    # optional text proof
-    text_proof = models.TextField(blank=True, null=True)
 
-    # file proof (image/pdf)
+    text_proof = models.TextField(blank=True, null=True)
     file_proof = models.FileField(upload_to='payment_proofs/', blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.user.username} - {self.created_at}"
-    
-class PaymentProof(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    text_proof = models.TextField(blank=True, null=True)
-    file_proof = models.FileField(upload_to='payment_proofs/', blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    
+
 class Category(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, unique=True)

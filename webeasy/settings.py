@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
      'django.contrib.humanize',
-    # Your custom apps
+    # My custom apps
     'themeOne',
     'shop',
     'accounts',
