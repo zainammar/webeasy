@@ -26,8 +26,13 @@ body{
 }
 
 .text-1{
-  color:  #E1E2EF;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: var(--font-d);
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
+    color:#ffffff;
+
+    animation: slideRight .7s .34s both;
 }
 /* ── shared section spacing ── */
 .page-section { width: 100%; }
@@ -58,8 +63,10 @@ body{
 .sec1-eyebrow {
     display: inline-flex; align-items: center; gap: 10px;
     font-family: var(--font-b);
-    font-size: .64rem;
-    letter-spacing: .26em;
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
+    color:#ffffff;
     text-transform: uppercase;
     color: var(--orchid);
     animation: slideRight .7s .2s both;
@@ -67,20 +74,22 @@ body{
 .sec1-eyebrow::before { content:''; width:28px; height:1px; background:var(--orchid); }
 .sec1-h2 {
     font-family: var(--font-d);
-    font-size: larger;
-    font-weight: 200;
-    line-height: 1.1;
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
+    color:#ffffff;
     color:#ffffff;
     animation: slideRight .7s .34s both;
 }
-.sec1-h2 em { font-style: italic; color: var(--clay); }
+
 .sec1-para {
-    font-family: var(--font-b);
-    font-size:2rem;
-    font-weight: 300;
+    font-family: var(--font-d);
+    font-size:18px;
+    font-weight: 150;
     line-height: 1.85;
     color:#ffffff;
-    animation: slideRight .7s .48s both;
+    color:#ffffff;
+    animation: slideRight .7s .34s both;
 }
 
 /* col 2 — image */
@@ -110,9 +119,11 @@ body{
 .sec1-list-col { display: flex; flex-direction: column; gap: 16px; animation: slideRight .7s .56s both; }
 .sec1-list-title {
     font-family: var(--font-d);
-    font-size: 3rem;
-    font-style: italic;
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
     color:#ffffff;
+    font-style: italic;
     padding-bottom: 12px;
     border-bottom: 1px solid rgba(191,172,170,.12);
 }
@@ -122,8 +133,9 @@ body{
 }
 .sec1-list li {
     font-family: var(--font-b);
-    font-size: .82rem;
-    font-weight: 300;
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
     color:#ffffff;
     line-height: 1.6;
     display: flex; align-items: flex-start; gap: 10px;
@@ -160,7 +172,7 @@ body{
 }
 .sec2-bar-text {
     font-family: var(--font-d);
-    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    font-size: 18px;
     font-weight: 400;
     font-style: italic;
     color:#ffffff;
@@ -199,8 +211,9 @@ body{
 .sec3-list-col { display: flex; flex-direction: column; gap: 20px; }
 .sec3-title {
     font-family: var(--font-d);
-    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
-    font-weight: 400;
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
     color:#ffffff;
     line-height: 1.2;
     padding-bottom: 16px;
@@ -213,8 +226,9 @@ body{
 }
 .styled-list li {
     font-family: var(--font-b);
-    font-size: .84rem;
-    font-weight: 300;
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
     color:#ffffff;
     line-height: 1.65;
     display: flex; align-items: flex-start; gap: 14px;
@@ -226,9 +240,11 @@ body{
 .styled-list li:hover { color: rgba(225,226,239,.85); }
 .li-num {
     font-family: var(--font-d);
-    font-size: .8rem;
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
+    color:#ffffff;
     font-style: italic;
-    color: var(--orchid);
     flex-shrink: 0;
     min-width: 20px;
     margin-top: 1px;
@@ -274,18 +290,20 @@ body{
 }
 .sec5-heading {
     font-family: var(--font-d);
-    font-size: 1.5rem;
-    font-weight: 400;
-    font-style: italic;
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
     color:#ffffff;
+    font-style: italic;
     padding-bottom: 14px;
     border-bottom: 1px solid rgba(191,172,170,.1);
 }
 .sec5-para {
     font-family: var(--font-b);
-    font-size: .82rem;
-    font-weight: 300;
-    line-height: 1.8;
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
+    color:#ffffff;
     color:#ffffff;
     display: flex; align-items: flex-start; gap: 10px;
 }
@@ -329,10 +347,11 @@ body{
 }
 .sec6-cta-text {
     font-family: var(--font-d);
-    font-size: clamp(1rem, 2vw, 1.45rem);
-    font-weight: 400;
-    font-style: italic;
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
     color:#ffffff;
+    font-style: italic;
     letter-spacing: .02em;
     position: relative; z-index: 1;
     
@@ -345,10 +364,10 @@ body{
 }
 .sec6-cta-sub {
     font-family: var(--font-b);
-    font-size: .82rem;
-    font-weight: 300;
-    letter-spacing: .1em;
-    color: rgba(191,172,170,.45);
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
+    color:#ffffff;
     text-align: center;
 }
 
@@ -383,8 +402,10 @@ body{
 }
 .sec7-card-text {
     font-family: var(--font-b);
-    font-size: .82rem;
-    font-weight: 300;
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
+    color:#ffffff;
     line-height: 1.75;
     color:#ffffff;
 }

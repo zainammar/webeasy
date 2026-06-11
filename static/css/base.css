@@ -6,9 +6,9 @@
   }
   
   body {
-    background-color: #D4D6CA;
+
     font-family: 'Inter', Georgia, 'Times New Roman', Times, serif;
-    color: #1a2a32;
+
     line-height: 1.5;
     display: flex;
     flex-direction: column;

@@ -3,22 +3,43 @@
 
 {% block content %}
 
+<style>
+    .text-aza{
+    font-size:22px;
+    font-weight: 300;
+    line-height: 1.85;
+    text-transform: uppercase;
+    color: #eec574;
+    animation: slideRight .7s .2s both;
+    }
+    
+    .page-title{
+    font-size:18px;
+    font-weight: 150;
+    line-height: 1.85;
+    text-transform: uppercase;
+    color: #ffffff;
+    animation: slideRight .7s .2s both;
+    }
+    </style>
+
 <section class="signup-section">
 
-    <h2 class="page-title">Create Account</h2>
+
 
   
     <div class="row-2 content-grid  {{ page.grid_layout }}">
 
         <!-- Left Content -->
         <div class="grid-item">
-            <p class="top-text">
+            <h2 class="page-title">Create Account</h2>
+            <p class="text-aza">
                 Welcome! Create your account to start shopping and explore amazing products.
             </p>
         </div>
 
         <!-- Signup Form -->
-        <div class="grid-item">
+        <div class="grid-item text-aza">
             <form method="post" class="signup-form">
                 {% csrf_token %}
                 
